@@ -379,8 +379,8 @@ fdt_header_size.exit:                             ; preds = %63, %65, %67
   %155 = add i32 %154, %131
   %156 = icmp ult i32 %155, %131
   %.not44 = icmp ugt i32 %155, %86
-  %or.cond88 = or i1 %156, %.not44
-  br i1 %or.cond88, label %check_block_.exit.thread, label %157
+  %or.cond49 = or i1 %156, %.not44
+  br i1 %or.cond49, label %check_block_.exit.thread, label %157
 
 157:                                              ; preds = %136, %134
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -424,14 +424,14 @@ fdt_header_size.exit:                             ; preds = %63, %65, %67
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %188 = load i8, ptr %187, align 1
   %.fr60 = freeze i8 %188
-  %189 = zext i8 %.fr60 to i32
-  %190 = shl nuw nsw i32 %189, 8
+  %190 = zext i8 %.fr60 to i32
+  %191 = shl nuw nsw i32 %190, 8
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %192 = load i8, ptr %191, align 1
   %.fr61 = freeze i8 %192
-  %193 = zext i8 %.fr61 to i32
+  %195 = zext i8 %.fr61 to i32
   %194 = add i32 %182, %175
-  %195 = add i32 %194, %186
+  %197 = add i32 %194, %186
   %196 = add i32 %195, %190
   %197 = add i32 %196, %193
   %198 = icmp ult i32 %197, %175

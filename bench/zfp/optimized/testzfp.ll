@@ -2451,16 +2451,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315: ; preds = %.l
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit335
-  %.0126.lcssa880 = phi i32 [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit335 ], [ %.1127, %._crit_edge ]
-  %.0129.lcssa878 = phi i32 [ 1, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit335 ], [ %519, %._crit_edge ]
+  %.0126.lcssa879 = phi i32 [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit335 ], [ %.1127, %._crit_edge ]
+  %.0129.lcssa877 = phi i32 [ 1, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit335 ], [ %519, %._crit_edge ]
   %520 = phi i32 [ 30, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit335 ], [ %spec.select, %._crit_edge ]
   %521 = call noundef i32 @_Z12common_testsv()
   %.not163 = icmp eq i32 %521, 0
   br i1 %.not163, label %.preheader359, label %599
 
 .preheader359:                                    ; preds = %._crit_edge.thread
-  %.not161 = icmp eq i32 %.0126.lcssa880, 0
-  %.2128 = select i1 %.not161, i32 3, i32 %.0126.lcssa880
+  %.not161 = icmp eq i32 %.0126.lcssa879, 0
+  %.2128 = select i1 %.not161, i32 3, i32 %.0126.lcssa879
   %522 = and i32 %.2128, 1
   %.not167 = icmp eq i32 %522, 0
   %523 = and i32 %.2128, 2
@@ -2475,7 +2475,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315: ; preds = %.l
   %.080850.us = phi i32 [ 1, %.loopexit.split.us.split.us855 ], [ 0, %.preheader359.split.us ]
   %.081849.us = phi i32 [ %.4.us, %.loopexit.split.us.split.us855 ], [ 0, %.preheader359.split.us ]
   %525 = shl nuw nsw i32 1, %.080850.us
-  %526 = and i32 %525, %.0129.lcssa878
+  %526 = and i32 %525, %.0129.lcssa877
   %.not165.us = icmp eq i32 %526, 0
   br i1 %.not165.us, label %.loopexit.split.us.split.us855, label %.preheader.us
 
@@ -2499,8 +2499,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315: ; preds = %.l
 532:                                              ; preds = %529, %.preheader.us
   %.3.us.us = phi i32 [ %531, %529 ], [ %.1839.us.us, %.preheader.us ]
   %533 = add nuw nsw i32 %.0840.us.us853, 1
-  %exitcond872.not = icmp eq i32 %533, 5
-  br i1 %exitcond872.not, label %.loopexit.split.us.split.us855, label %.preheader.us
+  %exitcond871.not = icmp eq i32 %533, 5
+  br i1 %exitcond871.not, label %.loopexit.split.us.split.us855, label %.preheader.us
 
 .preheader359.split:                              ; preds = %.preheader359
   br i1 %.not168, label %.preheader359.split.split.us, label %.preheader359.split.split
@@ -2510,7 +2510,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315: ; preds = %.l
   %.080850.us858 = phi i32 [ 1, %.loopexit.split.split.us.us ], [ 0, %.preheader359.split ]
   %.081849.us859 = phi i32 [ %.4.us861, %.loopexit.split.split.us.us ], [ 0, %.preheader359.split ]
   %535 = shl nuw nsw i32 1, %.080850.us858
-  %536 = and i32 %535, %.0129.lcssa878
+  %536 = and i32 %535, %.0129.lcssa877
   %.not165.us860 = icmp eq i32 %536, 0
   br i1 %.not165.us860, label %.loopexit.split.split.us.us, label %.preheader.us862
 
@@ -2534,8 +2534,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315: ; preds = %.l
 542:                                              ; preds = %539, %.preheader.us862
   %.3.us844.us = phi i32 [ %541, %539 ], [ %.1839.us842.us, %.preheader.us862 ]
   %543 = add nuw nsw i32 %.0840.us841.us, 1
-  %exitcond871.not = icmp eq i32 %543, 5
-  br i1 %exitcond871.not, label %.loopexit.split.split.us.us, label %.preheader.us862
+  %exitcond870.not = icmp eq i32 %543, 5
+  br i1 %exitcond870.not, label %.loopexit.split.split.us.us, label %.preheader.us862
 
 .split.us:                                        ; preds = %.loopexit.split.split, %.loopexit.split.split.us.us, %.loopexit.split.us.split.us855
   %.us-phi857 = phi i32 [ %.4.us, %.loopexit.split.us.split.us855 ], [ %.4.us861, %.loopexit.split.split.us.us ], [ %.4, %.loopexit.split.split ]
@@ -2547,7 +2547,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315: ; preds = %.l
   %.080850 = phi i32 [ 1, %.loopexit.split.split ], [ 0, %.preheader359.split ]
   %.081849 = phi i32 [ %.4, %.loopexit.split.split ], [ 0, %.preheader359.split ]
   %545 = shl nuw nsw i32 1, %.080850
-  %546 = and i32 %545, %.0129.lcssa878
+  %546 = and i32 %545, %.0129.lcssa877
   %.not165 = icmp eq i32 %546, 0
   br i1 %.not165, label %.loopexit.split.split, label %.preheader
 
@@ -2569,8 +2569,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315: ; preds = %.l
 554:                                              ; preds = %.preheader, %549
   %.3 = phi i32 [ %553, %549 ], [ %.1839, %.preheader ]
   %555 = add nuw nsw i32 %.0840, 1
-  %exitcond870.not = icmp eq i32 %555, 5
-  br i1 %exitcond870.not, label %.loopexit.split.split, label %.preheader
+  %exitcond869.not = icmp eq i32 %555, 5
+  br i1 %exitcond869.not, label %.loopexit.split.split, label %.preheader
 
 .loopexit.split.split:                            ; preds = %554, %.preheader359.split.split
   %.4 = phi i32 [ %.081849, %.preheader359.split.split ], [ %.3, %554 ]
@@ -2658,12 +2658,12 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit345: ; preds = %5
 
 597:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit345, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit340
   %.sink = phi ptr [ %596, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit345 ], [ %577, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit340 ]
-  %.not164884 = phi i32 [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit345 ], [ 1, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit340 ]
+  %.not164883 = phi i32 [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit345 ], [ 1, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit340 ]
   %598 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %.sink)
   br label %599
 
 599:                                              ; preds = %.thread357, %597, %._crit_edge.thread
-  %.1133 = phi i32 [ %.not164884, %597 ], [ 1, %._crit_edge.thread ], [ 1, %.thread357 ]
+  %.1133 = phi i32 [ %.not164883, %597 ], [ 1, %._crit_edge.thread ], [ 1, %.thread357 ]
   ret i32 %.1133
 }
 

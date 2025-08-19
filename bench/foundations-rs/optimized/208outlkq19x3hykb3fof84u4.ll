@@ -8282,55 +8282,55 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17hffaa
   %.not.not = icmp samesign ult i16 %7, 256
   br i1 %.not.not, label %.lr.ph.split, label %8
 
-8:                                                ; preds = %.lr.ph.split, %"_ZN57_$LT$u8$u20$as$u20$time..ext..digit_count..DigitCount$GT$10num_digits17h61ed772af6057c58E.exit"
+12:                                               ; preds = %.lr.ph.split, %"_ZN57_$LT$u8$u20$as$u20$time..ext..digit_count..DigitCount$GT$10num_digits17h61ed772af6057c58E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !742)
-  %9 = icmp ugt i8 %1, 99
-  br i1 %9, label %.thread.i, label %17
+  %13 = icmp ugt i8 %1, 99
+  br i1 %13, label %.thread.i, label %21
 
-.thread.i:                                        ; preds = %8
-  %10 = urem i8 %1, 100
-  %11 = shl nuw i8 %10, 1
-  %12 = zext i8 %11 to i64
-  %13 = udiv i8 %1, 100
-  %14 = getelementptr inbounds nuw i8, ptr @anon.e9ef04808737cbe8ef653d32af212bbe.98, i64 %12
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %16 = load i16, ptr %14, align 1, !noalias !742
-  store i16 %16, ptr %15, align 1, !alias.scope !742
-  br label %25
+.thread.i:                                        ; preds = %12
+  %14 = urem i8 %1, 100
+  %15 = shl nuw i8 %14, 1
+  %16 = zext i8 %15 to i64
+  %17 = udiv i8 %1, 100
+  %18 = getelementptr inbounds nuw i8, ptr @anon.e9ef04808737cbe8ef653d32af212bbe.98, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %20 = load i16, ptr %18, align 1, !noalias !742
+  store i16 %20, ptr %19, align 1, !alias.scope !742
+  br label %29
 
-17:                                               ; preds = %8
-  %18 = icmp samesign ult i8 %1, 10
-  br i1 %18, label %25, label %19
+21:                                               ; preds = %12
+  %22 = icmp samesign ult i8 %1, 10
+  br i1 %112, label %29, label %23
 
-19:                                               ; preds = %17
-  %20 = shl nuw i8 %1, 1
-  %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw i8, ptr @anon.e9ef04808737cbe8ef653d32af212bbe.98, i64 %21
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %24 = load i16, ptr %22, align 1, !noalias !742
-  store i16 %24, ptr %23, align 1, !alias.scope !742
+23:                                               ; preds = %21
+  %24 = shl nuw i8 %1, 1
+  %25 = zext i8 %24 to i64
+  %26 = getelementptr inbounds nuw i8, ptr @anon.e9ef04808737cbe8ef653d32af212bbe.98, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %28 = load i16, ptr %26, align 1, !noalias !742
+  store i16 %28, ptr %27, align 1, !alias.scope !742
   br label %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17h04205822b02ba40aE.exit"
 
-25:                                               ; preds = %17, %.thread.i
-  %.sroa.0.225.i = phi i8 [ %13, %.thread.i ], [ %1, %17 ]
+29:                                               ; preds = %21, %.thread.i
+  %.sroa.0.225.i = phi i8 [ %17, %.thread.i ], [ %1, %17 ]
   %.sroa.09.124.i.sroa.phi = phi ptr [ %3, %.thread.i ], [ %.sroa.09.124.i.sroa.gep23, %17 ]
   %.sroa.09.124.i = phi i64 [ 0, %.thread.i ], [ 2, %17 ]
-  %26 = or disjoint i8 %.sroa.0.225.i, 48
-  store i8 %26, ptr %.sroa.09.124.i.sroa.phi, align 1, !alias.scope !742
+  %30 = or disjoint i8 %.sroa.0.225.i, 48
+  store i8 %30, ptr %.sroa.09.124.i.sroa.phi, align 1, !alias.scope !742
   br label %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17h04205822b02ba40aE.exit"
 
-"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17h04205822b02ba40aE.exit": ; preds = %19, %25
+"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17h04205822b02ba40aE.exit": ; preds = %23, %29
   %.sroa.09.2.i = phi i64 [ %.sroa.09.124.i, %25 ], [ 1, %19 ]
-  %27 = sub nuw nsw i64 3, %.sroa.09.2.i
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.09.2.i
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %28, i64 noundef %27, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.66)
+  %31 = sub nuw nsw i64 3, %.sroa.09.2.i
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.09.2.i
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %212, i64 noundef %31, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.66)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 .lr.ph.split:                                     ; preds = %2, %"_ZN57_$LT$u8$u20$as$u20$time..ext..digit_count..DigitCount$GT$10num_digits17h61ed772af6057c58E.exit"
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 @anon.e9ef04808737cbe8ef653d32af212bbe.109, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.66)
-  br label %8
+  br label %12
 }
 
 ; Function Attrs: nonlazybind uwtable

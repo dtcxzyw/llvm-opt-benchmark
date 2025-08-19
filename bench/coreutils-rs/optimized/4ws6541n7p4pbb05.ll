@@ -2831,7 +2831,7 @@ define void @_ZN7uu_tail4args14parse_obsolete17heeca2eb9ff14aeaeE(ptr noalias no
     i8 2, label %26
   ]
 
-default.unreachable92:                            ; preds = %26
+default.unreachable85:                            ; preds = %26
   unreachable
 
 23:                                               ; preds = %3

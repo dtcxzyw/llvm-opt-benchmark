@@ -1480,8 +1480,8 @@ Cbs0_ManCheckLimits.exit25:                       ; preds = %Cbs0_ManCancelUntil
   br label %Cbs0_ManCheckLimits.exit25.thread
 
 Cbs0_ManCheckLimits.exit25.thread:                ; preds = %Cbs0_ManCheckLimits.exit25, %Cbs0_ManCancelUntil.exit
-  %126 = phi i32 [ -1, %Cbs0_ManCancelUntil.exit ], [ %spec.select, %Cbs0_ManCheckLimits.exit25 ]
-  ret i32 %126
+  %127 = phi i32 [ -1, %Cbs0_ManCancelUntil.exit ], [ %spec.select, %Cbs0_ManCheckLimits.exit25 ]
+  ret i32 %127
 }
 
 ; Function Attrs: nounwind uwtable

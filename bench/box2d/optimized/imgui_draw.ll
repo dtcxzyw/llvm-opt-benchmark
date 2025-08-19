@@ -27387,7 +27387,7 @@ define dso_local void @_ZN5ImGui36RenderColorRectWithAlphaCheckerboardEP10ImDraw
   %16 = extractelement <2 x float> %.fr91, i64 0
   br i1 %.not, label %131, label %17
 
-17:                                               ; preds = %8
+19:                                               ; preds = %8
   %18 = extractelement <2 x float> %.fr91, i64 1
   %19 = extractelement <2 x float> %.fr90, i64 1
   %20 = tail call noundef i32 @_Z18ImAlphaBlendColorsjj(i32 noundef -3355444, i32 noundef %3)
@@ -27400,9 +27400,9 @@ define dso_local void @_ZN5ImGui36RenderColorRectWithAlphaCheckerboardEP10ImDraw
   %25 = fcmp olt float %24, %18
   br i1 %25, label %.lr.ph66, label %.loopexit62
 
-.lr.ph66:                                         ; preds = %17
-  %foldExtExtBinop99 = fadd <2 x float> %.fr, %.fr90
-  %26 = extractelement <2 x float> %foldExtExtBinop99, i64 0
+.lr.ph66:                                         ; preds = %19
+  %foldExtExtBinop83 = fadd <2 x float> %.fr, %.fr90
+  %26 = extractelement <2 x float> %foldExtExtBinop83, i64 0
   %27 = icmp eq i32 %spec.store.select, 256
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -27595,7 +27595,7 @@ _ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi.exit: ; preds = %83, %124
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %10, i32 noundef %3, float noundef %6, i32 noundef %spec.store.select)
   br label %.loopexit62
 
-.loopexit62:                                      ; preds = %.loopexit, %.lr.ph66, %17, %131
+.loopexit62:                                      ; preds = %.loopexit, %.lr.ph66, %19, %131
   ret void
 }
 

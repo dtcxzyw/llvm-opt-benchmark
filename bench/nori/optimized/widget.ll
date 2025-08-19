@@ -529,9 +529,9 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit9.critedge: ; preds = %_ZNK7nanogui6Wid
   br i1 %or.cond9.i18, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19.thread
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19: ; preds = %._crit_edge
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %60 = load i32, ptr %59, align 4
-  %.fr = freeze i32 %60
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %61 = load i32, ptr %60, align 4
+  %.fr = freeze i32 %61
   %61 = icmp slt i32 %54, %.fr
   %spec.select = select i1 %61, ptr %0, ptr null
   br label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19.thread
@@ -634,9 +634,9 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit9.critedge: ; preds = %_ZNK7nanogui6Wid
   br i1 %or.cond9.i18, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19.thread
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19: ; preds = %._crit_edge
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %60 = load i32, ptr %59, align 4
-  %.fr = freeze i32 %60
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %61 = load i32, ptr %60, align 4
+  %.fr = freeze i32 %61
   %61 = icmp slt i32 %54, %.fr
   %spec.select = select i1 %61, ptr %0, ptr null
   br label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit19.thread

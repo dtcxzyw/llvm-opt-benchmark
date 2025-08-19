@@ -18782,8 +18782,8 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$cranelift_codegen..machinst..vcode.
   %196 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %197 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %198 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %injected.cond.not = icmp ugt i64 %.val161.fr, %.fr
-  br i1 %injected.cond.not, label %.lr.ph456.split, label %.lr.ph456.split.us
+  %injected.cond = icmp ugt i64 %.val161.fr, %.fr
+  br i1 %injected.cond, label %.lr.ph456.split, label %.lr.ph456.split.us
 
 .lr.ph456.split.us:                               ; preds = %.lr.ph456, %.loopexit.us
   %.sroa.015.0454.us = phi i64 [ %199, %.loopexit.us ], [ 0, %.lr.ph456 ]
@@ -19098,12 +19098,12 @@ _ZN9regalloc27Operand4vreg17hfc8010cac40dece7E.exit.i.us: ; preds = %"_ZN91_$LT$
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cdbbd6935181f98E.llvm.6890334928246803750.exit.thread.us": ; preds = %300, %281
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %exitcond.not = icmp eq i64 %247, %242
-  br i1 %exitcond.not, label %.loopexit.us, label %.lr.ph453.us
+  %exitcond779.not = icmp eq i64 %247, %242
+  br i1 %exitcond779.not, label %.loopexit.us, label %.lr.ph453.us
 
 .loopexit.us:                                     ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cdbbd6935181f98E.llvm.6890334928246803750.exit.thread.us", %245
-  %exitcond778.not = icmp eq i64 %199, %131
-  br i1 %exitcond778.not, label %._crit_edge457, label %.lr.ph456.split.us
+  %exitcond780.not = icmp eq i64 %199, %131
+  br i1 %exitcond780.not, label %._crit_edge457, label %.lr.ph456.split.us
 
 .thread209.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us: ; preds = %236, %208, %.lr.ph456.split.us
   %lpad.loopexit238.us = landingpad { ptr, i32 }
@@ -19131,8 +19131,8 @@ _ZN9regalloc27Operand4vreg17hfc8010cac40dece7E.exit.i.us: ; preds = %"_ZN91_$LT$
   br label %.thread202
 
 .loopexit:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cdbbd6935181f98E.llvm.6890334928246803750.exit.thread", %361
-  %exitcond780.not = icmp eq i64 %310, %131
-  br i1 %exitcond780.not, label %._crit_edge457, label %.lr.ph456.split, !llvm.loop !2699
+  %exitcond778.not = icmp eq i64 %310, %131
+  br i1 %exitcond778.not, label %._crit_edge457, label %.lr.ph456.split, !llvm.loop !2699
 
 ._crit_edge457:                                   ; preds = %.loopexit.us, %.loopexit, %129
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -19473,8 +19473,8 @@ _ZN9regalloc27Operand4vreg17hfc8010cac40dece7E.exit.i: ; preds = %"_ZN91_$LT$cor
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cdbbd6935181f98E.llvm.6890334928246803750.exit.thread": ; preds = %417, %399
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %exitcond779.not = icmp eq i64 %363, %358
-  br i1 %exitcond779.not, label %.loopexit, label %.lr.ph453
+  %exitcond.not = icmp eq i64 %363, %358
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph453
 
 405:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cdbbd6935181f98E.llvm.6890334928246803750.exit"
   %406 = and i32 %402, 6291456

@@ -9610,11 +9610,11 @@ define linkonce_odr hidden void @_ZZNK4entt8meta_any10allow_castERKNS_9meta_type
   %16 = getelementptr inbounds nuw i8, ptr %.037108.us116.i.i, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !337, !noalias !336
   %.fr2.i = freeze i64 %17
-  %18 = icmp eq i64 %.fr2.i, 0
+  %.not47.us120.i.i = icmp eq i64 %.fr2.i, 0
   %.not47.us120.i.i = icmp ne ptr %.0109.us115.i.fr.i, null
   %spec.select147.i.i = select i1 %.not47.us120.i.i, ptr %.0109.us115.i.fr.i, ptr %.037108.us116.i.i
   %.240.us124.i.i = select i1 %18, i1 %.not47.us120.i.i, i1 %.038107.us117.i.i
-  %.2.us125.i.i = select i1 %18, ptr %spec.select147.i.i, ptr %.0109.us115.i.fr.i
+  %.2.us125.i.i = select i1 %.not47.us120.i.i, ptr %spec.select147.i.i, ptr %.0109.us115.i.fr.i
   %19 = icmp eq ptr %.sroa.080.0105.us119.i.i, %14
   %spec.select88.idx.us126.i.i = select i1 %19, i64 0, i64 32
   %spec.select88.us127.i.i = getelementptr inbounds nuw i8, ptr %.sroa.080.0105.us119.i.i, i64 %spec.select88.idx.us126.i.i

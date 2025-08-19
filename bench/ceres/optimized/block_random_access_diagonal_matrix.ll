@@ -279,7 +279,7 @@ _ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_delete
   %.fr = freeze ptr %23
   %24 = load ptr, ptr %1, align 8, !tbaa !35
   %.fr46 = freeze ptr %24
-  %25 = ptrtoint ptr %.fr to i64
+  %26 = ptrtoint ptr %.fr to i64
   %26 = ptrtoint ptr %.fr46 to i64
   %27 = sub i64 %25, %26
   %28 = ashr i64 %27, 3

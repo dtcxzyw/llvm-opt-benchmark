@@ -1415,7 +1415,7 @@ _ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thre
   %121 = add i64 %.sroa.5.0.i.us, -1
   %122 = add i64 %121, %106
   %123 = icmp ult i64 %122, %89
-  br i1 %123, label %124, label %.invoke180, !prof !149
+  br i1 %123, label %124, label %.invoke179, !prof !149
 
 124:                                              ; preds = %120
   %125 = getelementptr inbounds [0 x i8], ptr %91, i64 0, i64 %121
@@ -1432,7 +1432,7 @@ _ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thre
 
 .split:                                           ; preds = %118
   %.not37.i = icmp eq i64 %.014.i, 0
-  br i1 %.not37.i, label %.split76.us, label %.invoke180
+  br i1 %.not37.i, label %.split76.us, label %.invoke179
 
 .split76.us:                                      ; preds = %.split.us, %.split
   %.015.i = select i1 %85, i64 %93, i64 %.fr99
@@ -1455,16 +1455,16 @@ _ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thre
 
 138:                                              ; preds = %132
   %umax.i = tail call i64 @llvm.umax.i64(i64 %.fr, i64 %93)
-  br label %.invoke180
+  br label %.invoke179
 
-.invoke180:                                       ; preds = %.split, %120, %147, %138
+.invoke179:                                       ; preds = %.split, %120, %147, %138
   %139 = phi i64 [ %umax.i, %138 ], [ %umax86.i, %147 ], [ %122, %120 ], [ %119, %.split ]
   %140 = phi i64 [ %93, %138 ], [ %89, %147 ], [ %89, %120 ], [ %93, %.split ]
   %141 = phi ptr [ @anon.bc4e83ce27ef10ab143efc5a659eab14.13, %138 ], [ @anon.bc4e83ce27ef10ab143efc5a659eab14.14, %147 ], [ @anon.bc4e83ce27ef10ab143efc5a659eab14.16, %120 ], [ @anon.bc4e83ce27ef10ab143efc5a659eab14.15, %.split ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %139, i64 noundef %140, ptr noalias noundef readonly align 8 dereferenceable(24) %141) #20
           to label %.cont181 unwind label %255
 
-.cont181:                                         ; preds = %.invoke180
+.cont180:                                         ; preds = %.invoke179
   unreachable
 
 142:                                              ; preds = %135
@@ -1478,7 +1478,7 @@ _ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thre
 147:                                              ; preds = %135
   %148 = add i64 %106, %.fr
   %umax86.i = tail call i64 @llvm.umax.i64(i64 %89, i64 %148)
-  br label %.invoke180
+  br label %.invoke179
 
 149:                                              ; preds = %142
   %150 = sub i64 %104, %102
@@ -1798,7 +1798,7 @@ _ZN10serde_json5error14parse_line_col17h90c3f9293681f1d2E.exit: ; preds = %_ZN10
   %eh.lpad-body44 = phi { ptr, i32 } [ %lpad.thr_comm, %255 ], [ %251, %250 ]
   resume { ptr, i32 } %eh.lpad-body44
 
-255:                                              ; preds = %.invoke180, %.invoke, %1, %"_ZN109_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$5index17h44693e60f9c8635cE.exit.i", %"_ZN109_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$5index17h44693e60f9c8635cE.exit59.i", %236
+255:                                              ; preds = %.invoke179, %.invoke, %1, %"_ZN109_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$5index17h44693e60f9c8635cE.exit.i", %"_ZN109_$LT$alloc..string..String$u20$as$u20$core..ops..index..Index$LT$core..ops..range..Range$LT$usize$GT$$GT$$GT$5index17h44693e60f9c8635cE.exit59.i", %236
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h9caea5b8ca0babb1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #22

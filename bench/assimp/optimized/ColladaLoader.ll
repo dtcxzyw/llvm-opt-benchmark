@@ -8967,12 +8967,12 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %309, ptr noundef nonnull @.str.20)
           to label %.invoke1327 unwind label %319
 
-.invoke1327:                                      ; preds = %308, %324
+.invoke1321:                                      ; preds = %308, %324
   %310 = phi ptr [ %325, %324 ], [ %309, %308 ]
   invoke void @__cxa_throw(ptr nonnull %310, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #35
           to label %.cont1328 unwind label %.loopexit.split-lp672
 
-.cont1328:                                        ; preds = %.invoke1327
+.cont1322:                                        ; preds = %.invoke1321
   unreachable
 
 311:                                              ; preds = %273
@@ -9000,7 +9000,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           cleanup
   br label %.body
 
-.loopexit.split-lp672:                            ; preds = %.invoke1327
+.loopexit.split-lp672:                            ; preds = %.invoke1321
   %lpad.loopexit.split-lp674 = landingpad { ptr, i32 }
           cleanup
   br label %.body

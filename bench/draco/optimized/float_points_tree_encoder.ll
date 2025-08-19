@@ -10916,23 +10916,23 @@ define linkonce_odr noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi
 
 .lr.ph65:                                         ; preds = %.preheader
   %14 = load ptr, ptr %4, align 8, !tbaa !52
-  %wide.trip.count80 = zext i32 %12 to i64
+  %wide.trip.count79 = zext i32 %12 to i64
   br label %15
 
 15:                                               ; preds = %.lr.ph65, %15
-  %indvars.iv77 = phi i64 [ 1, %.lr.ph65 ], [ %indvars.iv.next78, %15 ]
+  %indvars.iv76 = phi i64 [ 1, %.lr.ph65 ], [ %indvars.iv.next77, %15 ]
   %.03464 = phi i32 [ 0, %.lr.ph65 ], [ %spec.select, %15 ]
   %16 = zext i32 %.03464 to i64
   %17 = getelementptr inbounds nuw i32, ptr %14, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !33
-  %19 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv77
+  %19 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv76
   %20 = load i32, ptr %19, align 4, !tbaa !33
   %21 = icmp ugt i32 %18, %20
-  %22 = trunc nuw i64 %indvars.iv77 to i32
+  %22 = trunc nuw i64 %indvars.iv76 to i32
   %spec.select = select i1 %21, i32 %22, i32 %.03464
-  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
-  %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %.loopexit, label %15, !llvm.loop !330
+  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
+  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
+  br i1 %exitcond80.not, label %.loopexit, label %15, !llvm.loop !330
 
 23:                                               ; preds = %6
   %24 = udiv exact i64 %9, 12
@@ -10981,8 +10981,8 @@ define linkonce_odr noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi
 
 .preheader50:                                     ; preds = %73, %43
   %.lcssa = phi i32 [ %44, %43 ], [ %75, %73 ]
-  %.not69 = icmp eq i32 %.lcssa, 0
-  br i1 %.not69, label %._crit_edge61, label %.lr.ph60
+  %.not68 = icmp eq i32 %.lcssa, 0
+  br i1 %.not68, label %._crit_edge61, label %.lr.ph60
 
 .lr.ph60:                                         ; preds = %.preheader50
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1984
@@ -11048,19 +11048,19 @@ define linkonce_odr noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi
   br label %.loopexit
 
 78:                                               ; preds = %.lr.ph60, %86
-  %indvars.iv74 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next75, %86 ]
+  %indvars.iv73 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next74, %86 ]
   %.03358 = phi i32 [ 0, %.lr.ph60 ], [ %.1, %86 ]
   %.357 = phi i32 [ 0, %.lr.ph60 ], [ %.4, %86 ]
-  %79 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv74
+  %79 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv73
   %80 = load i32, ptr %79, align 4, !tbaa !33
   %.not = icmp eq i32 %80, 0
   br i1 %.not, label %86, label %81
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv74
+  %82 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv73
   %83 = load i32, ptr %82, align 4, !tbaa !33
   %84 = icmp ult i32 %.03358, %83
-  %85 = trunc nuw i64 %indvars.iv74 to i32
+  %85 = trunc nuw i64 %indvars.iv73 to i32
   %spec.select47 = select i1 %84, i32 %85, i32 %.357
   %spec.select48 = tail call i32 @llvm.umax.i32(i32 %.03358, i32 %83)
   br label %86
@@ -11068,8 +11068,8 @@ define linkonce_odr noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi
 86:                                               ; preds = %81, %78
   %.4 = phi i32 [ %.357, %78 ], [ %spec.select47, %81 ]
   %.1 = phi i32 [ %.03358, %78 ], [ %spec.select48, %81 ]
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count
+  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge61, label %78, !llvm.loop !333
 
 .loopexit:                                        ; preds = %15, %.preheader, %._crit_edge61

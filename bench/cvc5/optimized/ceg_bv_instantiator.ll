@@ -22116,11 +22116,11 @@ _ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPjSt6vector
   br label %82
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
-  %.pre28 = load i32, ptr %14, align 4, !tbaa !287
+  %.pre27 = load i32, ptr %14, align 4, !tbaa !287
   br label %86
 
 86:                                               ; preds = %91, %.lr.ph.split.split.us.split
-  %87 = phi i32 [ %.pre28, %.lr.ph.split.split.us.split ], [ %92, %91 ]
+  %87 = phi i32 [ %.pre27, %.lr.ph.split.split.us.split ], [ %92, %91 ]
   %.sroa.05.07.us8 = phi ptr [ %10, %.lr.ph.split.split.us.split ], [ %88, %91 ]
   %88 = getelementptr inbounds i8, ptr %.sroa.05.07.us8, i64 -4
   %89 = load i32, ptr %88, align 4, !tbaa !287

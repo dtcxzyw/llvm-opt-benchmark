@@ -655,8 +655,8 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Ite
   br label %11
 
 11:                                               ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread33
-  %.037 = phi i64 [ %1, %.lr.ph ], [ %40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread33 ]
-  %12 = shl i64 %.037, 1
+  %.036 = phi i64 [ %1, %.lr.ph ], [ %40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread33 ]
+  %12 = shl i64 %.036, 1
   %13 = add i64 %12, 2
   %14 = getelementptr inbounds i32, ptr %0, i64 %13
   %15 = getelementptr i32, ptr %0, i64 %12
@@ -705,7 +705,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
   %40 = phi i64 [ %37, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread ], [ %13, %26 ], [ %13, %35 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit ]
   %41 = getelementptr inbounds i32, ptr %0, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !9
-  %43 = getelementptr inbounds i32, ptr %0, i64 %.037
+  %43 = getelementptr inbounds i32, ptr %0, i64 %.036
   store i32 %42, ptr %43, align 4, !tbaa !9
   %44 = icmp slt i64 %40, %7
   br i1 %44, label %11, label %._crit_edge, !llvm.loop !27

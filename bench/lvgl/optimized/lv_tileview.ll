@@ -193,18 +193,18 @@ define internal void @tileview_event_cb(ptr noundef %0) #0 {
   %24 = srem i32 %23, %.fr45
   %25 = sub nsw i32 %23, %24
   %26 = call i32 @lv_obj_get_child_count(ptr noundef %4) #4
-  %.not51 = icmp eq i32 %26, 0
-  br i1 %.not51, label %.critedge, label %.lr.ph
+  %.not46 = icmp eq i32 %26, 0
+  br i1 %.not46, label %.critedge, label %.lr.ph
 
 27:                                               ; preds = %.lr.ph
-  %28 = add nuw i32 %.03850, 1
+  %28 = add nuw i32 %.03845, 1
   %29 = call i32 @lv_obj_get_child_count(ptr noundef %4) #4
   %30 = icmp ult i32 %28, %29
   br i1 %30, label %.lr.ph, label %.critedge, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %12, %27
-  %.03850 = phi i32 [ %28, %27 ], [ 0, %12 ]
-  %31 = call ptr @lv_obj_get_child(ptr noundef %4, i32 noundef %.03850) #4
+  %.03845 = phi i32 [ %28, %27 ], [ 0, %12 ]
+  %31 = call ptr @lv_obj_get_child(ptr noundef %4, i32 noundef %.03845) #4
   %32 = call i32 @lv_obj_get_x(ptr noundef %31) #4
   %33 = call i32 @lv_obj_get_y(ptr noundef %31) #4
   %34 = icmp eq i32 %32, %21

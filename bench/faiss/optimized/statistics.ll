@@ -3257,7 +3257,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops1
   br i1 %48, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split.preheader
 
 .lr.ph.split.split.us.split.preheader:            ; preds = %.lr.ph.split.split.us
-  %.pre34 = load double, ptr %.fr29, align 8, !tbaa !8
+  %.pre31 = load double, ptr %.fr29, align 8, !tbaa !8
   br label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %55
@@ -3283,7 +3283,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops1
   br i1 %57, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !122
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us.split.preheader, %61
-  %58 = phi double [ %62, %61 ], [ %.pre34, %.lr.ph.split.split.us.split.preheader ]
+  %58 = phi double [ %62, %61 ], [ %.pre31, %.lr.ph.split.split.us.split.preheader ]
   %.sroa.0.011.us12 = phi ptr [ %63, %61 ], [ %.fr, %.lr.ph.split.split.us.split.preheader ]
   %59 = load double, ptr %.sroa.0.011.us12, align 8, !tbaa !8
   %60 = fcmp olt double %59, %58

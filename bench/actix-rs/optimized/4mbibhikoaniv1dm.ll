@@ -3625,8 +3625,8 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h456073b07195e3c9
   %.360 = phi i64 [ %.05766, %168 ], [ %.05766, %176 ], [ %.05766, %180 ], [ %.05766, %188 ], [ %.056, %221 ], [ %.05766, %219 ], [ %.05766, %207 ], [ %.05766, %204 ]
   %.5 = phi i8 [ %.067, %168 ], [ %.067, %176 ], [ %.067, %180 ], [ %.067, %188 ], [ 1, %221 ], [ %.067, %219 ], [ %.067, %207 ], [ %.067, %204 ]
   %223 = add nuw i64 %.06164, 1
-  %exitcond156.not = icmp eq i64 %223, %34
-  br i1 %exitcond156.not, label %._crit_edge, label %50
+  %exitcond155.not = icmp eq i64 %223, %34
+  br i1 %exitcond155.not, label %._crit_edge, label %50
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5127,8 +5127,8 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h6e6e2914e7e6a3a8
   %.360 = phi i64 [ %.05766, %168 ], [ %.05766, %176 ], [ %.05766, %180 ], [ %.05766, %188 ], [ %.056, %221 ], [ %.05766, %219 ], [ %.05766, %207 ], [ %.05766, %204 ]
   %.5 = phi i8 [ %.067, %168 ], [ %.067, %176 ], [ %.067, %180 ], [ %.067, %188 ], [ 1, %221 ], [ %.067, %219 ], [ %.067, %207 ], [ %.067, %204 ]
   %223 = add nuw i64 %.06164, 1
-  %exitcond156.not = icmp eq i64 %223, %34
-  br i1 %exitcond156.not, label %._crit_edge, label %50
+  %exitcond155.not = icmp eq i64 %223, %34
+  br i1 %exitcond155.not, label %._crit_edge, label %50
 }
 
 ; Function Attrs: nonlazybind uwtable

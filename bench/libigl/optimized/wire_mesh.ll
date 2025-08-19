@@ -923,9 +923,9 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRiiEEEvN9__gnu_cxx17__norma
   %244 = fdiv double %234, %.scalar.i
   store double %244, ptr %.sroa.8379.0..sroa_idx, align 16, !tbaa !14, !alias.scope !92
   %.pre618 = fmul <2 x double> %243, %243
-  %shift707 = shufflevector <2 x double> %.pre618, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop708 = fadd <2 x double> %.pre618, %shift707
-  %.pre623 = extractelement <2 x double> %foldExtExtBinop708, i64 0
+  %shift663 = shufflevector <2 x double> %.pre618, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop664 = fadd <2 x double> %.pre618, %shift663
+  %.pre623 = extractelement <2 x double> %foldExtExtBinop664, i64 0
   %.pre625 = fmul double %244, %244
   %.pre627 = fadd double %.pre625, %.pre623
   %.pre629 = call double @llvm.sqrt.f64(double %.pre627)
@@ -946,9 +946,9 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRiiEEEvN9__gnu_cxx17__norma
   %252 = phi <2 x double> [ %243, %250 ], [ %.sroa.0376.8.vec.insert, %.thread635 ], [ %248, %240 ]
   %253 = phi double [ %244, %250 ], [ %234, %.thread635 ], [ %249, %240 ]
   %254 = fmul <2 x double> %252, zeroinitializer
-  %shift710 = shufflevector <2 x double> %254, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop711 = fadd <2 x double> %254, %shift710
-  %255 = extractelement <2 x double> %foldExtExtBinop711, i64 0
+  %shift666 = shufflevector <2 x double> %254, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop667 = fadd <2 x double> %254, %shift666
+  %255 = extractelement <2 x double> %foldExtExtBinop667, i64 0
   %256 = fadd double %253, %255
   %257 = fcmp olt double %256, 0xBFEFFFFFFFFFDCD1
   br i1 %257, label %258, label %275
@@ -1500,8 +1500,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %483
   store i64 %469, ptr %472, align 8, !tbaa !22
   store i64 %471, ptr %473, align 8, !tbaa !145
   %490 = and i64 %478, 2305843009213693950
-  %.not704 = icmp eq i64 %478, 1
-  br i1 %.not704, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
+  %.not660 = icmp eq i64 %478, 1
+  br i1 %.not660, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread646, %.thread643, %489
   %491 = phi i64 [ 0, %.thread643 ], [ %490, %489 ], [ %482, %.thread646 ], [ %490, %.lr.ph.i.i.i.i.i.i.i ]

@@ -15858,8 +15858,8 @@ _ZN5serde9__private2de7content17visit_content_seq17h771569c789867a83E.exit: ; pr
   store ptr %188, ptr %189, align 8, !noalias !4308
   %190 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %190, align 8, !noalias !4308
-  %.sroa.416.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %.sroa.7.0..sroa_idx14.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %.sroa.415.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %.sroa.7.0..sroa_idx13.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %191
 
 191:                                              ; preds = %204, %.noexc9.i
@@ -15886,7 +15886,7 @@ _ZN5serde9__private2de7content17visit_content_seq17h771569c789867a83E.exit: ; pr
 
 195:                                              ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_entry17h9bf14360c4585e8bE.exit.i.i.i"
   store i8 %194, ptr %6, align 8, !noalias !4308
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.7.0..sroa_idx14.i.i.i, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.416.0..sroa_idx.i.i.i, i64 63, i1 false), !noalias !4308
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.7.0..sroa_idx13.i.i.i, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.415.0..sroa_idx.i.i.i, i64 63, i1 false), !noalias !4308
   %196 = load i64, ptr %190, align 8, !alias.scope !4320, !noalias !4323, !noundef !4
   %197 = load i64, ptr %8, align 8, !alias.scope !4320, !noalias !4323, !noundef !4
   %198 = icmp eq i64 %196, %197
@@ -34273,8 +34273,8 @@ define internal fastcc void @"_ZN84_$LT$serde..__private..de..content..ContentVi
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx4.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx4.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.5.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %.sroa.615.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.5.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %.sroa.614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %21
 
@@ -34332,8 +34332,8 @@ define internal fastcc void @"_ZN84_$LT$serde..__private..de..content..ContentVi
 
 31:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..SeqAccess$GT$12next_element17h134dfaaf999b823dE.exit"
   store i8 %.sroa.0.0, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx14, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8, i64 7, i1 false)
-  store ptr %.sroa.9.1, ptr %.sroa.615.0..sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx13, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8, i64 7, i1 false)
+  store ptr %.sroa.9.1, ptr %.sroa.614.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11, i64 16, i1 false)
   %32 = load i64, ptr %18, align 8, !alias.scope !7739, !noalias !7742, !noundef !4
   %33 = load i64, ptr %6, align 8, !alias.scope !7739, !noalias !7742, !noundef !4
@@ -52389,7 +52389,7 @@ _ZN5serde9__private2de7content17visit_content_seq17he0620368bf77b047E.exit.i: ; 
   %.sroa.612.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 48
   %.sroa.2.0..sroa_idx.i.i.i.i.i12.i = getelementptr inbounds nuw i8, ptr %3, i64 1
   %172 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %.sroa.439.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %.sroa.438.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %173
 
 173:                                              ; preds = %194, %.noexc10.i11.i
@@ -52433,7 +52433,7 @@ _ZN5serde9__private2de7content17visit_content_seq17he0620368bf77b047E.exit.i: ; 
 179:                                              ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h8653e350bf05517fE.exit.i.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !10804
   store i8 %174, ptr %6, align 8, !noalias !10804
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx6.i.i.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.439.0..sroa_idx.i.i.i, i64 31, i1 false), !noalias !10804
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx6.i.i.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.438.0..sroa_idx.i.i.i, i64 31, i1 false), !noalias !10804
   call void @llvm.experimental.noalias.scope.decl(metadata !10812)
   call void @llvm.experimental.noalias.scope.decl(metadata !10815)
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i8, ptr %12, align 8, !alias.scope !10818, !noalias !10821

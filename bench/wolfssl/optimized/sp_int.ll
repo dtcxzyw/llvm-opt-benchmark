@@ -1610,8 +1610,8 @@ define range(i32 -98, 1) i32 @sp_div_d(ptr noundef readonly captures(address_is_
   %125 = or disjoint i128 %123, %124
   %126 = urem i128 %125, %118
   %indvars.iv.next46.i = add nsw i64 %indvars.iv45.i, -1
-  %.not65.i = icmp eq i64 %indvars.iv45.i, 0
-  br i1 %.not65.i, label %._crit_edge.thread.i38, label %.lr.ph.split.us.i, !llvm.loop !38
+  %.not64.i37 = icmp eq i64 %indvars.iv45.i, 0
+  br i1 %.not64.i37, label %._crit_edge.thread.i38, label %.lr.ph.split.us.i, !llvm.loop !38
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i33, %.lr.ph.split.i
   %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i35, %.lr.ph.split.i ], [ %120, %.lr.ph.i33 ]
@@ -1628,8 +1628,8 @@ define range(i32 -98, 1) i32 @sp_div_d(ptr noundef readonly captures(address_is_
   %136 = getelementptr inbounds nuw [129 x i64], ptr %119, i64 0, i64 %indvars.iv.i34
   store i64 %135, ptr %136, align 8, !tbaa !8
   %indvars.iv.next.i35 = add nsw i64 %indvars.iv.i34, -1
-  %.not64.i36 = icmp eq i64 %indvars.iv.i34, 0
-  br i1 %.not64.i36, label %.preheader.i37, label %.lr.ph.split.i, !llvm.loop !38
+  %.not63.i = icmp eq i64 %indvars.iv.i34, 0
+  br i1 %.not63.i, label %.preheader.i36, label %.lr.ph.split.i, !llvm.loop !38
 
 ._crit_edge.thread.i38:                           ; preds = %.lr.ph.split.us.i
   %extract.t.i = trunc nuw i128 %126 to i64
@@ -1643,11 +1643,11 @@ define range(i32 -98, 1) i32 @sp_div_d(ptr noundef readonly captures(address_is_
   store i16 0, ptr %2, align 8, !tbaa !12
   br label %144
 
-.preheader.i37:                                   ; preds = %.lr.ph.split.i
+.preheader.i36:                                   ; preds = %.lr.ph.split.i
   %extract.t42.i = trunc i128 %134 to i64
   br label %137
 
-137:                                              ; preds = %139, %.preheader.i37
+137:                                              ; preds = %139, %.preheader.i36
   %indvars.iv48.i = phi i64 [ %116, %.preheader.i37 ], [ %indvars.iv.next49.i, %139 ]
   %138 = icmp sgt i64 %indvars.iv48.i, 0
   br i1 %138, label %139, label %.critedge.i
@@ -1657,25 +1657,25 @@ define range(i32 -98, 1) i32 @sp_div_d(ptr noundef readonly captures(address_is_
   %140 = getelementptr inbounds nuw [129 x i64], ptr %119, i64 0, i64 %indvars.iv.next49.i
   %141 = load i64, ptr %140, align 8, !tbaa !8
   %142 = icmp eq i64 %141, 0
-  br i1 %142, label %137, label %.critedge.split.loop.exit62.i, !llvm.loop !39
+  br i1 %142, label %137, label %.critedge.split.loop.exit61.i, !llvm.loop !39
 
-.critedge.split.loop.exit62.i:                    ; preds = %139
+.critedge.split.loop.exit61.i:                    ; preds = %139
   %143 = trunc i64 %indvars.iv48.i to i16
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %137, %.critedge.split.loop.exit62.i
+.critedge.i:                                      ; preds = %137, %.critedge.split.loop.exit61.i
   %.0.in.lcssa.i = phi i16 [ %143, %.critedge.split.loop.exit62.i ], [ 0, %137 ]
   store i16 %.0.in.lcssa.i, ptr %2, align 8, !tbaa !12
   br label %144
 
 144:                                              ; preds = %.critedge.i, %.thread.i, %._crit_edge.i, %._crit_edge.thread.i38
-  %.031.lcssa.off055.i = phi i64 [ %extract.t.i, %._crit_edge.thread.i38 ], [ %extract.t42.i, %.critedge.i ], [ 0, %._crit_edge.i ], [ 0, %.thread.i ]
+  %.031.lcssa.off054.i = phi i64 [ %extract.t.i, %._crit_edge.thread.i38 ], [ %extract.t42.i, %.critedge.i ], [ 0, %._crit_edge.i ], [ 0, %.thread.i ]
   %.not36.i = icmp eq ptr %3, null
   br i1 %.not36.i, label %_sp_div_10.exit, label %_sp_div_10.exit.sink.split
 
 _sp_div_10.exit.sink.split:                       ; preds = %72, %21, %144, %68, %._crit_edge.thread.i30, %18, %._crit_edge.thread.i
-  %.031.lcssa.off055.i.sink = phi i64 [ 0, %18 ], [ %.1.lcssa66.i, %._crit_edge.thread.i ], [ 0, %68 ], [ %.150.lcssa74.i, %._crit_edge.thread.i30 ], [ %.031.lcssa.off055.i, %144 ], [ %33, %21 ], [ %84, %72 ]
-  store i64 %.031.lcssa.off055.i.sink, ptr %3, align 8, !tbaa !8
+  %.031.lcssa.off054.i.sink = phi i64 [ 0, %18 ], [ %.1.lcssa66.i, %._crit_edge.thread.i ], [ 0, %68 ], [ %.150.lcssa74.i, %._crit_edge.thread.i30 ], [ %.031.lcssa.off054.i, %144 ], [ %33, %21 ], [ %84, %72 ]
+  store i64 %.031.lcssa.off054.i.sink, ptr %3, align 8, !tbaa !8
   br label %_sp_div_10.exit
 
 _sp_div_10.exit:                                  ; preds = %_sp_div_10.exit.sink.split, %8, %144, %._crit_edge.thread.i30, %._crit_edge.thread.i, %13
@@ -2716,7 +2716,7 @@ define range(i32 -98, 1) i32 @sp_addmod_ct(ptr noundef readonly captures(none) %
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.fr110 = freeze i16 %10
-  %15 = zext i16 %.fr110 to i64
+  %16 = zext i16 %.fr110 to i64
   %.fr = freeze i16 %9
   %16 = zext i16 %.fr to i64
   %wide.trip.count = zext i16 %5 to i64

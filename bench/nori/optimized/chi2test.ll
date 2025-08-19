@@ -5285,11 +5285,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
   %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i19.us38 = getelementptr inbounds nuw i8, ptr %.fr46, i64 8
-  %.pre51 = load double, ptr %.fr46, align 8
+  %.pre48 = load double, ptr %.fr46, align 8
   br label %91
 
 91:                                               ; preds = %95, %.lr.ph.split.split.us.split
-  %92 = phi double [ %.pre51, %.lr.ph.split.split.us.split ], [ %96, %95 ]
+  %92 = phi double [ %.pre48, %.lr.ph.split.split.us.split ], [ %96, %95 ]
   %.sroa.0.025.us26 = phi ptr [ %.fr, %.lr.ph.split.split.us.split ], [ %97, %95 ]
   %93 = load double, ptr %.sroa.0.025.us26, align 8
   %94 = fcmp olt double %93, %92

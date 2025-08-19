@@ -15696,8 +15696,8 @@ H5S__hyper_bounds.exit.thread:                    ; preds = %55, %.preheader.i, 
   %72 = icmp ugt i64 %71, 4294967295
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond188 = select i1 %72, i1 true, i1 %exitcond.not
-  br i1 %or.cond188, label %.loopexit, label %.lr.ph, !llvm.loop !253
+  %or.cond184 = select i1 %72, i1 true, i1 %exitcond.not
+  br i1 %or.cond184, label %.loopexit, label %.lr.ph, !llvm.loop !253
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader115, %H5S__hyper_bounds.exit.thread
   %.084 = phi i1 [ false, %H5S__hyper_bounds.exit.thread ], [ false, %.preheader115 ], [ %72, %.lr.ph ]

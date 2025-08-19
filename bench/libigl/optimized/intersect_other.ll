@@ -30485,8 +30485,8 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpickEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit.thread48
-  %.051 = phi i64 [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpickEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit.thread48 ], [ %1, %5 ]
-  %9 = shl i64 %.051, 1
+  %.050 = phi i64 [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpickEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit.thread48 ], [ %1, %5 ]
+  %9 = shl i64 %.050, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"class.CGAL::Box_intersection_d::Box_with_handle_d", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
@@ -30544,7 +30544,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_trait
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %32 = load ptr, ptr %31, align 8, !tbaa !439
   %.fr = freeze ptr %30
-  %.fr50 = freeze ptr %32
+  %cond.fr = freeze ptr %32
   %33 = icmp ult ptr %.fr, %.fr50
   br i1 %33, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpickEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpickEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit.thread48
 
@@ -30554,7 +30554,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_trait
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpickEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit.thread48: ; preds = %_ZN4CGAL18Box_intersection_d12Box_traits_dINS0_17Box_with_handle_dIdLi3EN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3INS_5EpickEEESt6vectorIS7_SaIS7_EEEENS0_14ID_FROM_HANDLEEEEE9min_coordERKSE_i.exit14.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpickEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpickEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit.thread
   %34 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpickEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit.thread ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpickEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit ], [ %10, %_ZN4CGAL18Box_intersection_d12Box_traits_dINS0_17Box_with_handle_dIdLi3EN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3INS_5EpickEEESt6vectorIS7_SaIS7_EEEENS0_14ID_FROM_HANDLEEEEE9min_coordERKSE_i.exit14.i.i.i ]
   %35 = getelementptr inbounds %"class.CGAL::Box_intersection_d::Box_with_handle_d", ptr %0, i64 %34
-  %36 = getelementptr inbounds %"class.CGAL::Box_intersection_d::Box_with_handle_d", ptr %0, i64 %.051
+  %36 = getelementptr inbounds %"class.CGAL::Box_intersection_d::Box_with_handle_d", ptr %0, i64 %.050
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %35, i64 56, i1 false)
   %37 = icmp slt i64 %34, %7
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !501
@@ -49423,7 +49423,7 @@ _ZN4CGAL18Box_intersection_d18Predicate_traits_dINS0_12Box_traits_dINS0_17Box_wi
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %63 = load ptr, ptr %62, align 8, !tbaa !439
   %.fr75 = freeze ptr %61
-  %.fr76 = freeze ptr %63
+  %cond.fr = freeze ptr %63
   %64 = icmp ult ptr %.fr75, %.fr76
   br i1 %64, label %_ZN4CGAL18Box_intersection_d18Predicate_traits_dINS0_12Box_traits_dINS0_17Box_with_handle_dIdLi3EN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3INS_5EpickEEESt6vectorIS8_SaIS8_EEEENS0_14ID_FROM_HANDLEEEEEELb1EE13is_lo_less_loERKSF_SJ_i.exit32.thread, label %_ZN4CGAL18Box_intersection_d18Predicate_traits_dINS0_12Box_traits_dINS0_17Box_with_handle_dIdLi3EN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3INS_5EpickEEESt6vectorIS8_SaIS8_EEEENS0_14ID_FROM_HANDLEEEEEELb1EE13is_lo_less_loERKSF_SJ_i.exit21.thread
 
@@ -49540,7 +49540,7 @@ _ZN4CGAL18Box_intersection_d18Predicate_traits_dINS0_12Box_traits_dINS0_17Box_wi
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %103 = load ptr, ptr %102, align 8, !tbaa !439
   %.fr = freeze ptr %101
-  %.fr74 = freeze ptr %103
+  %cond.fr70 = freeze ptr %103
   %104 = icmp ult ptr %.fr, %.fr74
   br i1 %104, label %_ZN4CGAL18Box_intersection_d18Predicate_traits_dINS0_12Box_traits_dINS0_17Box_with_handle_dIdLi3EN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3INS_5EpickEEESt6vectorIS8_SaIS8_EEEENS0_14ID_FROM_HANDLEEEEEELb1EE13is_lo_less_loERKSF_SJ_i.exit54.thread, label %_ZN4CGAL18Box_intersection_d18Predicate_traits_dINS0_12Box_traits_dINS0_17Box_with_handle_dIdLi3EN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3INS_5EpickEEESt6vectorIS8_SaIS8_EEEENS0_14ID_FROM_HANDLEEEEEELb1EE13is_lo_less_loERKSF_SJ_i.exit21.thread
 
@@ -53787,8 +53787,8 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpeckEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit.thread48
-  %.051 = phi i64 [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpeckEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit.thread48 ], [ %1, %5 ]
-  %9 = shl i64 %.051, 1
+  %.050 = phi i64 [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpeckEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit.thread48 ], [ %1, %5 ]
+  %9 = shl i64 %.050, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"class.CGAL::Box_intersection_d::Box_with_handle_d.461", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
@@ -53846,7 +53846,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_trait
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %32 = load ptr, ptr %31, align 8, !tbaa !1320
   %.fr = freeze ptr %30
-  %.fr50 = freeze ptr %32
+  %cond.fr = freeze ptr %32
   %33 = icmp ult ptr %.fr, %.fr50
   br i1 %33, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpeckEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpeckEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit.thread48
 
@@ -53856,7 +53856,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_trait
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpeckEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit.thread48: ; preds = %_ZN4CGAL18Box_intersection_d12Box_traits_dINS0_17Box_with_handle_dIdLi3EN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3INS_5EpeckEEESt6vectorIS7_SaIS7_EEEENS0_14ID_FROM_HANDLEEEEE9min_coordERKSE_i.exit14.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpeckEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpeckEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit.thread
   %34 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpeckEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit.thread ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4CGAL18Box_intersection_d18Predicate_traits_dINS3_12Box_traits_dINS3_17Box_with_handle_dIdLi3ENS_17__normal_iteratorIPNS2_10Triangle_3INS2_5EpeckEEESt6vectorISA_SaISA_EEEENS3_14ID_FROM_HANDLEEEEEELb1EE7CompareEEclINS7_IPSH_SC_ISH_SaISH_EEEESQ_EEbT_T0_.exit ], [ %10, %_ZN4CGAL18Box_intersection_d12Box_traits_dINS0_17Box_with_handle_dIdLi3EN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3INS_5EpeckEEESt6vectorIS7_SaIS7_EEEENS0_14ID_FROM_HANDLEEEEE9min_coordERKSE_i.exit14.i.i.i ]
   %35 = getelementptr inbounds %"class.CGAL::Box_intersection_d::Box_with_handle_d.461", ptr %0, i64 %34
-  %36 = getelementptr inbounds %"class.CGAL::Box_intersection_d::Box_with_handle_d.461", ptr %0, i64 %.051
+  %36 = getelementptr inbounds %"class.CGAL::Box_intersection_d::Box_with_handle_d.461", ptr %0, i64 %.050
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %35, i64 56, i1 false)
   %37 = icmp slt i64 %34, %7
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !1371
@@ -71274,7 +71274,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   %.fr14.i = freeze ptr %5
   %6 = load ptr, ptr %1, align 8, !tbaa !2061
   %.fr.i = freeze ptr %6
-  %7 = ptrtoint ptr %.fr14.i to i64
+  %8 = ptrtoint ptr %.fr14.i to i64
   %8 = ptrtoint ptr %.fr.i to i64
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -104607,7 +104607,7 @@ _ZN4CGAL18Box_intersection_d18Predicate_traits_dINS0_12Box_traits_dINS0_17Box_wi
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %63 = load ptr, ptr %62, align 8, !tbaa !1320
   %.fr75 = freeze ptr %61
-  %.fr76 = freeze ptr %63
+  %cond.fr = freeze ptr %63
   %64 = icmp ult ptr %.fr75, %.fr76
   br i1 %64, label %_ZN4CGAL18Box_intersection_d18Predicate_traits_dINS0_12Box_traits_dINS0_17Box_with_handle_dIdLi3EN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3INS_5EpeckEEESt6vectorIS8_SaIS8_EEEENS0_14ID_FROM_HANDLEEEEEELb1EE13is_lo_less_loERKSF_SJ_i.exit32.thread, label %_ZN4CGAL18Box_intersection_d18Predicate_traits_dINS0_12Box_traits_dINS0_17Box_with_handle_dIdLi3EN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3INS_5EpeckEEESt6vectorIS8_SaIS8_EEEENS0_14ID_FROM_HANDLEEEEEELb1EE13is_lo_less_loERKSF_SJ_i.exit21.thread
 
@@ -104724,7 +104724,7 @@ _ZN4CGAL18Box_intersection_d18Predicate_traits_dINS0_12Box_traits_dINS0_17Box_wi
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %103 = load ptr, ptr %102, align 8, !tbaa !1320
   %.fr = freeze ptr %101
-  %.fr74 = freeze ptr %103
+  %cond.fr70 = freeze ptr %103
   %104 = icmp ult ptr %.fr, %.fr74
   br i1 %104, label %_ZN4CGAL18Box_intersection_d18Predicate_traits_dINS0_12Box_traits_dINS0_17Box_with_handle_dIdLi3EN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3INS_5EpeckEEESt6vectorIS8_SaIS8_EEEENS0_14ID_FROM_HANDLEEEEEELb1EE13is_lo_less_loERKSF_SJ_i.exit54.thread, label %_ZN4CGAL18Box_intersection_d18Predicate_traits_dINS0_12Box_traits_dINS0_17Box_with_handle_dIdLi3EN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3INS_5EpeckEEESt6vectorIS8_SaIS8_EEEENS0_14ID_FROM_HANDLEEEEEELb1EE13is_lo_less_loERKSF_SJ_i.exit21.thread
 

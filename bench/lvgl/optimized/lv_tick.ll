@@ -115,10 +115,10 @@ lv_tick_get.exit:                                 ; preds = %6
   br i1 %12, label %lv_tick_get.exit.split.us, label %lv_tick_get.exit.split
 
 lv_tick_get.exit.split.us:                        ; preds = %lv_tick_get.exit.thread, %lv_tick_get.exit
-  %.0.i.fr16 = phi i32 [ %.0.i.fr15, %lv_tick_get.exit.thread ], [ %.0.i.fr, %lv_tick_get.exit ]
+  %.0.i15 = phi i32 [ %.0.i.fr15, %lv_tick_get.exit.thread ], [ %.0.i.fr, %lv_tick_get.exit ]
   %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 328), align 8
   %.fr = freeze i32 %13
-  %.0.i7.us = sub i32 %.fr, %.0.i.fr16
+  %.0.i7.us = sub i32 %.fr, %.0.i15
   %14 = icmp ult i32 %.0.i7.us, %0
   br i1 %14, label %.preheader.i.i.us.us, label %.preheader.i.i.us
 

@@ -798,7 +798,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr noundef writeo
   %20 = load i32, ptr %5, align 8, !tbaa !56
   %.fr = freeze i32 %20
   %21 = icmp eq i32 %.fr, 0
-  %22 = select i1 %21, i32 50, i32 %.fr
+  %23 = select i1 %21, i32 50, i32 %.fr
   %23 = select i1 %21, i32 2000, i32 %.fr
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %25 = load i32, ptr %24, align 4, !tbaa !57

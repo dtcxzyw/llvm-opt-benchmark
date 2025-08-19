@@ -670,17 +670,17 @@ _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %.preheade
   br i1 %.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %31, %44
-  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %44 ], [ 0, %31 ]
-  %gep80.us = getelementptr [14 x [3 x i16]], ptr %invariant.gep79, i64 0, i64 %indvars.iv93
+  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %44 ], [ 0, %31 ]
+  %gep80.us = getelementptr [14 x [3 x i16]], ptr %invariant.gep79, i64 0, i64 %indvars.iv89
   %41 = load i16, ptr %gep80.us, align 2, !tbaa !18
   %42 = sext i16 %41 to i32
   %43 = icmp sgt i32 %.062, %42
   br i1 %43, label %44, label %.critedge
 
 44:                                               ; preds = %.split.us
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %exitcond96.not = icmp eq i64 %indvars.iv.next94, 14
-  br i1 %exitcond96.not, label %.critedge.thread, label %.split.us, !llvm.loop !20
+  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
+  %exitcond92.not = icmp eq i64 %indvars.iv.next90, 14
+  br i1 %exitcond92.not, label %.critedge.thread, label %.split.us, !llvm.loop !20
 
 .split:                                           ; preds = %31, %48
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %31 ]
@@ -696,7 +696,7 @@ _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %.preheade
   br i1 %exitcond.not, label %.critedge.thread, label %.split, !llvm.loop !20
 
 .critedge:                                        ; preds = %.split, %.split.us
-  %.us-phi.in = phi i64 [ %indvars.iv93, %.split.us ], [ %indvars.iv, %.split ]
+  %.us-phi.in = phi i64 [ %indvars.iv89, %.split.us ], [ %indvars.iv, %.split ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   %or.cond = icmp eq i32 %.us-phi, 0
   br i1 %or.cond, label %.critedge.thread, label %49

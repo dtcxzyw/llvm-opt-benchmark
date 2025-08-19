@@ -379,7 +379,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIP
 _ZNK4Type12is_long_longEv.exit:                   ; preds = %115
   %118 = load i32, ptr %22, align 8, !tbaa !88
   %.fr153 = freeze i32 %118
-  %119 = icmp ne i32 %.fr153, 5
+  %120 = icmp ne i32 %.fr153, 5
   %120 = icmp ne i32 %.fr153, 11
   %spec.select.i102.not = and i1 %119, %120
   br label %.thread146
@@ -401,8 +401,8 @@ _ZNK4Type12is_long_longEv.exit:                   ; preds = %115
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %132 = load i32, ptr %131, align 8
   %133 = icmp ne i32 %132, 10
-  %.not158 = select i1 %130, i1 true, i1 %133
-  %spec.select100 = and i1 %.150.shrunk, %.not158
+  %.not154 = select i1 %130, i1 true, i1 %133
+  %spec.select100 = and i1 %.150.shrunk, %.not154
   br label %134
 
 134:                                              ; preds = %126, %.thread146

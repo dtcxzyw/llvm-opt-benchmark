@@ -6385,20 +6385,20 @@ _ZNSt16allocator_traitsISaIN7xgboost11FeatureTypeEEE8allocateERS2_m.exit.i.i.i.i
 
 .noexc102:                                        ; preds = %_ZNSt16allocator_traitsISaIN7xgboost11FeatureTypeEEE8allocateERS2_m.exit.i.i.i.i
   %.pre = load ptr, ptr %229, align 8, !tbaa !55
-  %.pre524 = load ptr, ptr %231, align 8, !tbaa !55
-  %240 = icmp eq ptr %.pre524, %.pre
+  %.pre520 = load ptr, ptr %231, align 8, !tbaa !55
+  %240 = icmp eq ptr %.pre520, %.pre
   br i1 %240, label %.noexc102.thread, label %241
 
 241:                                              ; preds = %.noexc102
-  %.pre525 = ptrtoint ptr %.pre524 to i64
-  %.pre526 = ptrtoint ptr %.pre to i64
-  %.pre528 = sub i64 %.pre525, %.pre526
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %239, ptr align 1 %.pre, i64 %.pre528, i1 false)
+  %.pre521 = ptrtoint ptr %.pre520 to i64
+  %.pre522 = ptrtoint ptr %.pre to i64
+  %.pre524 = sub i64 %.pre521, %.pre522
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %239, ptr align 1 %.pre, i64 %.pre524, i1 false)
   br label %.noexc102.thread
 
 .noexc102.thread:                                 ; preds = %230, %241, %.noexc102
   %242 = phi ptr [ %239, %241 ], [ %239, %.noexc102 ], [ null, %230 ]
-  %.pre-phi529532 = phi i64 [ %.pre528, %241 ], [ 0, %.noexc102 ], [ 0, %230 ]
+  %.pre-phi525528 = phi i64 [ %.pre524, %241 ], [ 0, %.noexc102 ], [ 0, %230 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %87)
   %243 = load ptr, ptr %125, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %88)
@@ -6528,7 +6528,7 @@ _ZN7xgboost8BatchSetINS_16GHistIndexMatrixEE3endEv.exit.us: ; preds = %_ZN7xgboo
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store ptr %284, ptr %78, align 8
-  store i64 %.pre-phi529532, ptr %.sroa.3381.0..sroa_idx, align 8
+  store i64 %.pre-phi525528, ptr %.sroa.3381.0..sroa_idx, align 8
   store ptr %242, ptr %.sroa.4382.0..sroa_idx, align 8
   store ptr %287, ptr %.sroa.5383.0..sroa_idx, align 8
   store ptr %289, ptr %.sroa.6384.0..sroa_idx, align 8
@@ -7170,7 +7170,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit68.i.i.i:          ; preds = %460, %.body.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   store ptr %442, ptr %60, align 8
-  store i64 %.pre-phi529532, ptr %.sroa.3.0..sroa_idx, align 8
+  store i64 %.pre-phi525528, ptr %.sroa.3.0..sroa_idx, align 8
   store ptr %242, ptr %.sroa.4375.0..sroa_idx, align 8
   store ptr %445, ptr %.sroa.5376.0..sroa_idx, align 8
   store ptr %465, ptr %.sroa.6377.0..sroa_idx, align 8
@@ -29281,11 +29281,11 @@ _ZN7xgboost7RegTree4FVec4FillERKNS_6common4SpanIKNS_5EntryELm1844674407370955161
 
 ._crit_edge.loopexit:                             ; preds = %_ZN7xgboost9predictor5multi12GetLeafIndexILb1ELb1EEEiRKNS_15MultiTargetTreeERKNS_7RegTree4FVecERKNS6_22CategoricalSplitMatrixE.exit
   %.pre = load ptr, ptr %11, align 8, !tbaa !105
-  %.pre34 = load ptr, ptr %10, align 8, !tbaa !108
+  %.pre32 = load ptr, ptr %10, align 8, !tbaa !108
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN7xgboost7RegTree4FVec4FillERKNS_6common4SpanIKNS_5EntryELm18446744073709551615EEE.exit
-  %72 = phi ptr [ %.pre34, %._crit_edge.loopexit ], [ %33, %_ZN7xgboost7RegTree4FVec4FillERKNS_6common4SpanIKNS_5EntryELm18446744073709551615EEE.exit ]
+  %72 = phi ptr [ %.pre32, %._crit_edge.loopexit ], [ %33, %_ZN7xgboost7RegTree4FVec4FillERKNS_6common4SpanIKNS_5EntryELm18446744073709551615EEE.exit ]
   %73 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %32, %_ZN7xgboost7RegTree4FVec4FillERKNS_6common4SpanIKNS_5EntryELm18446744073709551615EEE.exit ]
   %.not6.i.i.i.i.i.i = icmp eq ptr %72, %73
   br i1 %.not6.i.i.i.i.i.i, label %_ZN7xgboost7RegTree4FVec4DropEv.exit, label %.lr.ph.i.i.i.i.i.i
@@ -29316,7 +29316,7 @@ _ZN7xgboost7RegTree4FVec4DropEv.exit:             ; preds = %.lr.ph.i.i.i.i.i.i,
   %.fr28 = freeze ptr %83
   %84 = load ptr, ptr %81, align 8, !tbaa !181, !noalias !972
   %.fr29 = freeze ptr %84
-  %85 = ptrtoint ptr %.fr28 to i64
+  %86 = ptrtoint ptr %.fr28 to i64
   %86 = ptrtoint ptr %.fr29 to i64
   %87 = sub i64 %85, %86
   store i64 %87, ptr %3, align 8, !tbaa !44, !alias.scope !972

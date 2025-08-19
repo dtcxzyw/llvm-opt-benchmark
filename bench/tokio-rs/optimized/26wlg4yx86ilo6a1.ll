@@ -4011,8 +4011,8 @@ define hidden { i64, ptr } @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$9po
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %29 = load i32, ptr %21, align 8
-  %.fr = freeze i32 %29
-  %30 = icmp eq i32 %.fr, -1
+  %.fr96 = freeze i32 %29
+  %30 = icmp eq i32 %.fr96, -1
   br i1 %30, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
@@ -4211,8 +4211,8 @@ define hidden { i64, ptr } @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$9po
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %29 = load i32, ptr %21, align 8
-  %.fr = freeze i32 %29
-  %30 = icmp eq i32 %.fr, -1
+  %.fr96 = freeze i32 %29
+  %30 = icmp eq i32 %.fr96, -1
   br i1 %30, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
@@ -4411,8 +4411,8 @@ define hidden { i64, ptr } @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$9po
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %29 = load i32, ptr %21, align 8
-  %.fr = freeze i32 %29
-  %30 = icmp eq i32 %.fr, -1
+  %.fr96 = freeze i32 %29
+  %30 = icmp eq i32 %.fr96, -1
   br i1 %30, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
@@ -4610,8 +4610,8 @@ define hidden { i64, ptr } @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$9po
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %28 = load i32, ptr %20, align 8
-  %.fr = freeze i32 %28
-  %29 = icmp eq i32 %.fr, -1
+  %.fr96 = freeze i32 %28
+  %29 = icmp eq i32 %.fr96, -1
   br i1 %29, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
@@ -5763,8 +5763,8 @@ define void @_ZN5tokio3net3tcp6stream9TcpStream9poll_peek17h39735745176b91c2E(pt
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %27 = load i32, ptr %18, align 8
-  %.fr = freeze i32 %27
-  %28 = icmp eq i32 %.fr, -1
+  %.fr69 = freeze i32 %27
+  %28 = icmp eq i32 %.fr69, -1
   br i1 %28, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split

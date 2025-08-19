@@ -133,8 +133,8 @@ define internal fastcc range(i32 0, 2) i32 @Hash_DRBG_Reseed(ptr noundef %0, ptr
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 4) i32 @wc_RNG_TestSeed(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = add i32 %1, -4
-  %.not22 = icmp eq i32 %3, 0
-  br i1 %.not22, label %._crit_edge, label %.lr.ph.preheader
+  %.not20 = icmp eq i32 %3, 0
+  br i1 %.not20, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %4 = tail call noundef range(i32 0, 5) i32 @llvm.umin.i32(i32 %3, i32 4)
@@ -143,12 +143,12 @@ define range(i32 0, 4) i32 @wc_RNG_TestSeed(ptr noundef readonly captures(none) 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
-  %.021 = phi i32 [ %4, %.lr.ph.preheader ], [ %21, %17 ]
-  %.01319 = phi i32 [ 0, %.lr.ph.preheader ], [ %18, %17 ]
+  %.019 = phi i32 [ %4, %.lr.ph.preheader ], [ %21, %17 ]
+  %.01317 = phi i32 [ 0, %.lr.ph.preheader ], [ %18, %17 ]
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %7 = zext nneg i32 %.021 to i64
+  %7 = zext nneg i32 %.019 to i64
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
-  %.not = icmp eq i32 %.021, 0
+  %.not = icmp eq i32 %.019, 0
   br i1 %.not, label %ConstantCompare.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.lr.ph.i
@@ -159,8 +159,8 @@ define range(i32 0, 4) i32 @wc_RNG_TestSeed(ptr noundef readonly captures(none) 
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1, !tbaa !15
   %.fr17 = freeze i8 %12
-  %.fr18 = freeze i8 %10
-  %13 = xor i8 %.fr17, %.fr18
+  %.fr = freeze i8 %10
+  %13 = xor i8 %.fr17, %.fr
   %14 = zext i8 %13 to i32
   %15 = or i32 %.010.i, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -175,7 +175,7 @@ ConstantCompare.exit.thread:                      ; preds = %.lr.ph, %ConstantCo
   br label %17
 
 17:                                               ; preds = %ConstantCompare.exit, %ConstantCompare.exit.thread
-  %18 = phi i32 [ 3, %ConstantCompare.exit.thread ], [ %.01319, %ConstantCompare.exit ]
+  %18 = phi i32 [ 3, %ConstantCompare.exit.thread ], [ %.01317, %ConstantCompare.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %19 = trunc nuw i64 %indvars.iv.next to i32
   %20 = sub i32 %1, %19
@@ -291,18 +291,18 @@ wc_GenerateSeed.exit.thread57:                    ; preds = %32, %27
 
 .lr.ph.i.outer:                                   ; preds = %.thread71, %37
   %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i72, %.thread71 ], [ 0, %37 ]
-  %.021.i.ph = phi i32 [ %60, %.thread71 ], [ 4, %37 ]
+  %.019.i.ph = phi i32 [ %60, %.thread71 ], [ 4, %37 ]
   %41 = phi i1 [ false, %.thread71 ], [ true, %37 ]
-  %.01319.i.ph = phi i32 [ 3, %.thread71 ], [ 0, %37 ]
+  %.01317.i.ph = phi i32 [ 3, %.thread71 ], [ 0, %37 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.outer, %53
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ %indvars.iv.i.ph, %.lr.ph.i.outer ]
-  %.021.i = phi i32 [ %56, %53 ], [ %.021.i.ph, %.lr.ph.i.outer ]
+  %.019.i = phi i32 [ %56, %53 ], [ %.019.i.ph, %.lr.ph.i.outer ]
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
-  %43 = zext nneg i32 %.021.i to i64
+  %43 = zext nneg i32 %.019.i to i64
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 %43
-  %.not.i51 = icmp eq i32 %.021.i, 0
+  %.not.i51 = icmp eq i32 %.019.i, 0
   br i1 %.not.i51, label %.thread71, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i, %.lr.ph.i.i
@@ -313,8 +313,8 @@ wc_GenerateSeed.exit.thread57:                    ; preds = %32, %27
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv.i.i
   %48 = load i8, ptr %47, align 1, !tbaa !15
   %.fr17.i = freeze i8 %48
-  %.fr18.i = freeze i8 %46
-  %49 = xor i8 %.fr17.i, %.fr18.i
+  %.fr.i = freeze i8 %46
+  %49 = xor i8 %.fr17.i, %.fr.i
   %50 = zext i8 %49 to i32
   %51 = or i32 %.010.i.i, %50
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -371,7 +371,7 @@ Hash_DRBG_Instantiate.exit:                       ; preds = %70
   br label %.lr.ph29.preheader.i
 
 wc_RNG_TestSeed.exit.thread73:                    ; preds = %.thread71, %wc_RNG_TestSeed.exit, %wc_RNG_TestSeed.exit.thread, %70, %62
-  %.4.ph = phi i32 [ 1, %62 ], [ 1, %70 ], [ 1, %wc_RNG_TestSeed.exit.thread ], [ %.01319.i.ph, %wc_RNG_TestSeed.exit ], [ 3, %.thread71 ]
+  %.4.ph = phi i32 [ 1, %62 ], [ 1, %70 ], [ 1, %wc_RNG_TestSeed.exit.thread ], [ %.01317.i.ph, %wc_RNG_TestSeed.exit ], [ 3, %.thread71 ]
   %74 = load ptr, ptr %13, align 8, !tbaa !3
   %.not50 = icmp eq ptr %74, null
   br i1 %.not50, label %76, label %75
