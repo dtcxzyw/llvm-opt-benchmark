@@ -1489,12 +1489,11 @@ define dso_local noundef i32 @_ZN4llvm10MCStreamer19emitSLEB128IntValueEl(ptr no
   %22 = and i64 %.0.i, 64
   %23 = icmp eq i64 %22, 0
   %.not31.i = or i1 %21, %23
-  %cond.fr = freeze i1 %.not31.i
-  %spec.select = select i1 %cond.fr, i8 -128, i8 0
+  %spec.select = select i1 %.not31.i, i8 -128, i8 0
   br label %.thread
 
 .thread:                                          ; preds = %15, %20
-  %24 = phi i1 [ %cond.fr, %20 ], [ false, %15 ]
+  %24 = phi i1 [ %.not31.i, %20 ], [ false, %15 ]
   %25 = phi i8 [ %spec.select, %20 ], [ 0, %15 ]
   %.025.i = or disjoint i8 %25, %17
   %26 = load ptr, ptr %13, align 8, !tbaa !241

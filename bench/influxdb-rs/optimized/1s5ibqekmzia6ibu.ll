@@ -3144,9 +3144,9 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h48cbebeb36d28704E.exit.i12.i.i": ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 %.pre.i11.i.i
-  %rhsc20.i.i = load i8, ptr %9, align 1, !alias.scope !353
-  %rhsc20.fr.i.i = freeze i8 %rhsc20.i.i
-  %10 = icmp eq i8 %rhsc20.fr.i.i, 13
+  %rhsc19.i.i = load i8, ptr %9, align 1, !alias.scope !353
+  %rhsc19.fr.i.i = freeze i8 %rhsc19.i.i
+  %10 = icmp eq i8 %rhsc19.fr.i.i, 13
   %spec.select.i15.i.i = select i1 %10, ptr %1, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h5d06a8ddf963499dE.exit16.i.i"
 
@@ -9399,18 +9399,20 @@ _ZN4core3str11validations23next_code_point_reverse17hdbb7c3cdae54fa66E.exit.thre
   %101 = load i64, ptr %100, align 8, !alias.scope !1261, !noalias !1268
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %103 = load i64, ptr %102, align 8, !alias.scope !1261, !noalias !1268
+  %.fr = freeze i64 %103
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %106 = load i64, ptr %105, align 8, !alias.scope !1261, !noalias !1268
   %.promoted66.i = load i64, ptr %104, align 8, !alias.scope !1261, !noalias !1268
   %107 = sub i64 %10, %106
-  %.neg.i = sub i64 %10, %103
+  %.neg.i = sub i64 %10, %.fr
   br label %108
 
 108:                                              ; preds = %.backedge.i, %.lr.ph.i
   %109 = phi i64 [ %.promoted66.i, %.lr.ph.i ], [ %121, %.backedge.i ]
   %110 = phi i64 [ %99, %.lr.ph.i ], [ %123, %.backedge.i ]
   %111 = phi i64 [ %10, %.lr.ph.i ], [ %122, %.backedge.i ]
+  %.fr63 = freeze i64 %109
   %.not.i = icmp eq i64 %10, %111
   br i1 %.not.i, label %112, label %.loopexit
 
@@ -9435,22 +9437,21 @@ _ZN4core3str11validations23next_code_point_reverse17hdbb7c3cdae54fa66E.exit.thre
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.split53.us, %155, %.backedge.sink.split.i, %120
-  %121 = phi i64 [ %109, %120 ], [ %109, %.split53.us ], [ %109, %155 ], [ %.sink112.i, %.backedge.sink.split.i ]
+  %121 = phi i64 [ %.fr63, %120 ], [ %.fr63, %.split53.us ], [ %.fr63, %155 ], [ %.sink112.i, %.backedge.sink.split.i ]
   %122 = phi i64 [ %110, %120 ], [ %135, %.split53.us ], [ %107, %155 ], [ %.ph111.i, %.backedge.sink.split.i ]
   %123 = sub i64 %122, %98
   %.not36.i = icmp ult i64 %123, %94
   br i1 %.not36.i, label %108, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h3e064cc84751aba6E.exit.thread"
 
 124:                                              ; preds = %112
-  %.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %103, i64 %109)
-  %.013.i19 = select i1 %90, i64 %103, i64 %.0.sroa.speculated.i.i
-  %.013.i19.fr = freeze i64 %.013.i19
-  %125 = add i64 %.013.i19.fr, -1
+  %.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.fr, i64 %.fr63)
+  %.013.i19 = select i1 %90, i64 %.fr, i64 %.0.sroa.speculated.i.i
+  %125 = add i64 %.013.i19, -1
   %.first_iter.i = icmp ult i64 %125, %98
   br i1 %.first_iter.i, label %.split.us, label %.split, !prof !731
 
 .split.us:                                        ; preds = %124, %130
-  %.sroa.5.0.i.us = phi i64 [ %127, %130 ], [ %.013.i19.fr, %124 ]
+  %.sroa.5.0.i.us = phi i64 [ %127, %130 ], [ %.013.i19, %124 ]
   %.not37.i.us = icmp eq i64 %.sroa.5.0.i.us, 0
   br i1 %.not37.i.us, label %.split49.us, label %126
 
@@ -9474,11 +9475,11 @@ _ZN4core3str11validations23next_code_point_reverse17hdbb7c3cdae54fa66E.exit.thre
   br i1 %90, label %.backedge.i, label %.backedge.sink.split.i
 
 .split:                                           ; preds = %124
-  %.not37.i = icmp eq i64 %.013.i19.fr, 0
+  %.not37.i = icmp eq i64 %.013.i19, 0
   br i1 %.not37.i, label %.split49.us, label %136
 
 .split49.us:                                      ; preds = %.split.us, %.split
-  %.014.i = select i1 %90, i64 %98, i64 %109
+  %.014.i = select i1 %90, i64 %98, i64 %.fr63
   br label %137
 
 136:                                              ; preds = %.split
@@ -9486,7 +9487,7 @@ _ZN4core3str11validations23next_code_point_reverse17hdbb7c3cdae54fa66E.exit.thre
   unreachable
 
 137:                                              ; preds = %148, %.split49.us
-  %.sroa.09.0.i = phi i64 [ %103, %.split49.us ], [ %141, %148 ]
+  %.sroa.09.0.i = phi i64 [ %.fr, %.split49.us ], [ %141, %148 ]
   %138 = icmp ult i64 %.sroa.09.0.i, %.014.i
   br i1 %138, label %140, label %139
 
@@ -9509,7 +9510,7 @@ _ZN4core3str11validations23next_code_point_reverse17hdbb7c3cdae54fa66E.exit.thre
   br i1 %146, label %148, label %153, !prof !731
 
 147:                                              ; preds = %140
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %103, i64 %98)
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %.fr, i64 %98)
   tail call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 noundef %umax.i, i64 noundef %98, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1523a72b7a4346f2c9a097c3049a322f.44) #33, !noalias !1272
   unreachable
 
@@ -9522,7 +9523,7 @@ _ZN4core3str11validations23next_code_point_reverse17hdbb7c3cdae54fa66E.exit.thre
   br i1 %.not26.i, label %137, label %155
 
 153:                                              ; preds = %144
-  %154 = add i64 %110, %103
+  %154 = add i64 %110, %.fr
   %umax90.i = tail call i64 @llvm.umax.i64(i64 %94, i64 %154)
   tail call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 noundef %umax90.i, i64 noundef %94, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1523a72b7a4346f2c9a097c3049a322f.45) #33, !noalias !1272
   unreachable
@@ -9606,9 +9607,9 @@ define hidden { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h48cbebeb36d28704E.exit.i12": ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 %.pre.i11
-  %rhsc20 = load i8, ptr %9, align 1
-  %rhsc20.fr = freeze i8 %rhsc20
-  %10 = icmp eq i8 %rhsc20.fr, 13
+  %rhsc19 = load i8, ptr %9, align 1
+  %rhsc19.fr = freeze i8 %rhsc19
+  %10 = icmp eq i8 %rhsc19.fr, 13
   %spec.select.i15 = select i1 %10, ptr %1, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h5d06a8ddf963499dE.exit16"
 
@@ -9670,9 +9671,9 @@ define hidden { ptr, i64 } @"_ZN92_$LT$core..str..LinesMap$u20$as$u20$core..ops.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h48cbebeb36d28704E.exit.i12.i": ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 %.pre.i11.i
-  %rhsc20.i = load i8, ptr %9, align 1, !alias.scope !1276
-  %rhsc20.fr.i = freeze i8 %rhsc20.i
-  %10 = icmp eq i8 %rhsc20.fr.i, 13
+  %rhsc19.i = load i8, ptr %9, align 1, !alias.scope !1276
+  %rhsc19.fr.i = freeze i8 %rhsc19.i
+  %10 = icmp eq i8 %rhsc19.fr.i, 13
   %spec.select.i15.i = select i1 %10, ptr %1, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h5d06a8ddf963499dE.exit16.i"
 

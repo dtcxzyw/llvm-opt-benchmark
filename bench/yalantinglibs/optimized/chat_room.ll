@@ -61240,6 +61240,7 @@ _ZN7cinatra17coro_http_request16get_header_valueESt17basic_string_viewIcSt11char
   %retval.sroa.0.0.copyload.i = load i64, ptr %value.i, align 8
   %retval.sroa.3.0.value.sroa_idx.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i, i64 24
   %retval.sroa.3.0.copyload.i = load ptr, ptr %retval.sroa.3.0.value.sroa_idx.i, align 8
+  %retval.sroa.3.0.copyload.i.fr = freeze ptr %retval.sroa.3.0.copyload.i
   %cmp.i = icmp eq i64 %retval.sroa.0.0.copyload.i, 0
   br i1 %cmp.i, label %if.end15, label %if.end6.i.i
 
@@ -61248,13 +61249,13 @@ if.end6.i.i:                                      ; preds = %_ZN7cinatra17coro_h
   br i1 %cmp11.not20.i.i, label %if.end6.i.i11, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end6.i.i
-  %add.ptr9.i.i = getelementptr inbounds i8, ptr %retval.sroa.3.0.copyload.i, i64 %retval.sroa.0.0.copyload.i
+  %add.ptr9.i.i = getelementptr inbounds i8, ptr %retval.sroa.3.0.copyload.i.fr, i64 %retval.sroa.0.0.copyload.i
   %sub.ptr.lhs.cast20.i.i = ptrtoint ptr %add.ptr9.i.i to i64
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end19.i.i, %while.body.lr.ph.i.i
   %__len.022.i.i = phi i64 [ %retval.sroa.0.0.copyload.i, %while.body.lr.ph.i.i ], [ %sub.ptr.sub22.i.i, %if.end19.i.i ]
-  %__first.021.i.i = phi ptr [ %retval.sroa.3.0.copyload.i, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i5, %if.end19.i.i ]
+  %__first.021.i.i = phi ptr [ %retval.sroa.3.0.copyload.i.fr, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i5, %if.end19.i.i ]
   %add.i.i = add i64 %__len.022.i.i, -32
   %call.i.i.i = tail call ptr @memchr(ptr noundef %__first.021.i.i, i32 noundef 97, i64 noundef %add.i.i) #34
   %tobool.not.i.i = icmp eq ptr %call.i.i.i, null
@@ -61274,7 +61275,7 @@ if.end19.i.i:                                     ; preds = %_ZNSt11char_traitsI
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %retval.sroa.3.0.copyload.i to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %retval.sroa.3.0.copyload.i.fr to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %cmp.not = icmp eq i64 %sub.ptr.sub.i.i, -1
   br i1 %cmp.not, label %if.end6.i.i11, label %return
@@ -61284,13 +61285,13 @@ if.end6.i.i11:                                    ; preds = %if.end19.i.i, %whil
   br i1 %cmp11.not20.i.i13, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit75.thread, label %while.body.lr.ph.i.i14
 
 while.body.lr.ph.i.i14:                           ; preds = %if.end6.i.i11
-  %add.ptr9.i.i15 = getelementptr inbounds i8, ptr %retval.sroa.3.0.copyload.i, i64 %retval.sroa.0.0.copyload.i
+  %add.ptr9.i.i15 = getelementptr inbounds i8, ptr %retval.sroa.3.0.copyload.i.fr, i64 %retval.sroa.0.0.copyload.i
   %sub.ptr.lhs.cast20.i.i17 = ptrtoint ptr %add.ptr9.i.i15 to i64
   br label %while.body.i.i18
 
 while.body.i.i18:                                 ; preds = %if.end19.i.i30, %while.body.lr.ph.i.i14
   %__len.022.i.i19 = phi i64 [ %retval.sroa.0.0.copyload.i, %while.body.lr.ph.i.i14 ], [ %sub.ptr.sub22.i.i33, %if.end19.i.i30 ]
-  %__first.021.i.i20 = phi ptr [ %retval.sroa.3.0.copyload.i, %while.body.lr.ph.i.i14 ], [ %incdec.ptr.i.i31, %if.end19.i.i30 ]
+  %__first.021.i.i20 = phi ptr [ %retval.sroa.3.0.copyload.i.fr, %while.body.lr.ph.i.i14 ], [ %incdec.ptr.i.i31, %if.end19.i.i30 ]
   %add.i.i22 = add i64 %__len.022.i.i19, -18
   %call.i.i.i25 = tail call ptr @memchr(ptr noundef %__first.021.i.i20, i32 noundef 109, i64 noundef %add.i.i22) #34
   %tobool.not.i.i26 = icmp eq ptr %call.i.i.i25, null
@@ -61310,7 +61311,7 @@ if.end19.i.i30:                                   ; preds = %_ZNSt11char_traitsI
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit40: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i27
   %sub.ptr.lhs.cast.i.i36 = ptrtoint ptr %call.i.i.i25 to i64
-  %sub.ptr.rhs.cast.i.i37 = ptrtoint ptr %retval.sroa.3.0.copyload.i to i64
+  %sub.ptr.rhs.cast.i.i37 = ptrtoint ptr %retval.sroa.3.0.copyload.i.fr to i64
   %sub.ptr.sub.i.i38 = sub i64 %sub.ptr.lhs.cast.i.i36, %sub.ptr.rhs.cast.i.i37
   %cmp8.not = icmp eq i64 %sub.ptr.sub.i.i38, -1
   br i1 %cmp8.not, label %if.end6.i.i46, label %return
@@ -61320,36 +61321,36 @@ if.end6.i.i46:                                    ; preds = %if.end19.i.i30, %wh
   br i1 %cmp11.not20.i.i48, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit75.thread, label %while.body.lr.ph.i.i49
 
 while.body.lr.ph.i.i49:                           ; preds = %if.end6.i.i46
-  %add.ptr9.i.i50 = getelementptr inbounds i8, ptr %retval.sroa.3.0.copyload.i, i64 %retval.sroa.0.0.copyload.i
+  %add.ptr9.i.i50 = getelementptr inbounds i8, ptr %retval.sroa.3.0.copyload.i.fr, i64 %retval.sroa.0.0.copyload.i
   %sub.ptr.lhs.cast20.i.i52 = ptrtoint ptr %add.ptr9.i.i50 to i64
   br label %while.body.i.i53
 
 while.body.i.i53:                                 ; preds = %if.end19.i.i65, %while.body.lr.ph.i.i49
   %__len.022.i.i54 = phi i64 [ %retval.sroa.0.0.copyload.i, %while.body.lr.ph.i.i49 ], [ %sub.ptr.sub22.i.i68, %if.end19.i.i65 ]
-  %__first.021.i.i55 = phi ptr [ %retval.sroa.3.0.copyload.i, %while.body.lr.ph.i.i49 ], [ %incdec.ptr.i.i66, %if.end19.i.i65 ]
+  %__first.021.i.i55 = phi ptr [ %retval.sroa.3.0.copyload.i.fr, %while.body.lr.ph.i.i49 ], [ %incdec.ptr.i.i66, %if.end19.i.i65 ]
   %add.i.i57 = add i64 %__len.022.i.i54, -23
   %call.i.i.i60 = tail call ptr @memchr(ptr noundef %__first.021.i.i55, i32 noundef 97, i64 noundef %add.i.i57) #34
-  %tobool.not.i.i61 = icmp eq ptr %call.i.i.i60, null
+  %call.i.i.i60.fr = freeze ptr %call.i.i.i60
+  %tobool.not.i.i61 = icmp eq ptr %call.i.i.i60.fr, null
   br i1 %tobool.not.i.i61, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit75.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i62
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i62: ; preds = %while.body.i.i53
-  %bcmp.i.i63 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(24) %call.i.i.i60, ptr noundef nonnull dereferenceable(24) @.str.122, i64 24)
+  %bcmp.i.i63 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(24) %call.i.i.i60.fr, ptr noundef nonnull dereferenceable(24) @.str.122, i64 24)
   %cmp16.i.i64 = icmp eq i32 %bcmp.i.i63, 0
   br i1 %cmp16.i.i64, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit75, label %if.end19.i.i65
 
 if.end19.i.i65:                                   ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i62
-  %incdec.ptr.i.i66 = getelementptr inbounds nuw i8, ptr %call.i.i.i60, i64 1
+  %incdec.ptr.i.i66 = getelementptr inbounds nuw i8, ptr %call.i.i.i60.fr, i64 1
   %sub.ptr.rhs.cast21.i.i67 = ptrtoint ptr %incdec.ptr.i.i66 to i64
   %sub.ptr.sub22.i.i68 = sub i64 %sub.ptr.lhs.cast20.i.i52, %sub.ptr.rhs.cast21.i.i67
   %cmp11.not.i.i69 = icmp ult i64 %sub.ptr.sub22.i.i68, 24
   br i1 %cmp11.not.i.i69, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit75.thread, label %while.body.i.i53, !llvm.loop !29
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit75: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i62
-  %sub.ptr.lhs.cast.i.i71 = ptrtoint ptr %call.i.i.i60 to i64
-  %sub.ptr.rhs.cast.i.i72 = ptrtoint ptr %retval.sroa.3.0.copyload.i to i64
+  %sub.ptr.lhs.cast.i.i71 = ptrtoint ptr %call.i.i.i60.fr to i64
+  %sub.ptr.rhs.cast.i.i72 = ptrtoint ptr %retval.sroa.3.0.copyload.i.fr to i64
   %sub.ptr.sub.i.i73 = sub i64 %sub.ptr.lhs.cast.i.i71, %sub.ptr.rhs.cast.i.i72
-  %sub.ptr.sub.i.i73.fr = freeze i64 %sub.ptr.sub.i.i73
-  %cmp12.not = icmp eq i64 %sub.ptr.sub.i.i73.fr, -1
+  %cmp12.not = icmp eq i64 %sub.ptr.sub.i.i73, -1
   br i1 %cmp12.not, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit75.thread, label %return
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit75.thread: ; preds = %while.body.i.i53, %if.end19.i.i65, %if.end6.i.i11, %if.end6.i.i46, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit75

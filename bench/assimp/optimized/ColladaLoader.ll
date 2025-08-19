@@ -8965,14 +8965,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 308:                                              ; preds = %303
   %309 = tail call ptr @__cxa_allocate_exception(i64 16) #33
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %309, ptr noundef nonnull @.str.20)
-          to label %.invoke1321 unwind label %319
+          to label %.invoke1327 unwind label %319
 
-.invoke1321:                                      ; preds = %308, %324
+.invoke1327:                                      ; preds = %308, %324
   %310 = phi ptr [ %325, %324 ], [ %309, %308 ]
   invoke void @__cxa_throw(ptr nonnull %310, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #35
-          to label %.cont1322 unwind label %.loopexit.split-lp672
+          to label %.cont1328 unwind label %.loopexit.split-lp672
 
-.cont1322:                                        ; preds = %.invoke1321
+.cont1328:                                        ; preds = %.invoke1327
   unreachable
 
 311:                                              ; preds = %273
@@ -9000,7 +9000,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           cleanup
   br label %.body
 
-.loopexit.split-lp672:                            ; preds = %.invoke1321
+.loopexit.split-lp672:                            ; preds = %.invoke1327
   %lpad.loopexit.split-lp674 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -9019,7 +9019,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 324:                                              ; preds = %321
   %325 = tail call ptr @__cxa_allocate_exception(i64 16) #33
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %325, ptr noundef nonnull @.str.21)
-          to label %.invoke1321 unwind label %326
+          to label %.invoke1327 unwind label %326
 
 326:                                              ; preds = %324
   %327 = landingpad { ptr, i32 }
@@ -9933,8 +9933,9 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKSt4pairImmES_IS3_SaIS3_EEEESaIS8_E
 .lr.ph940:                                        ; preds = %._crit_edge935
   %670 = getelementptr inbounds nuw i8, ptr %0, i64 369
   %671 = load i8, ptr %670, align 1, !range !9
-  %672 = xor i8 %671, 1
-  %673 = zext nneg i8 %672 to i64
+  %.fr1217 = freeze i8 %671
+  %672 = xor i8 %.fr1217, 1
+  %673 = zext i8 %672 to i64
   br label %743
 
 674:                                              ; preds = %.lr.ph934, %._crit_edge932
@@ -10105,10 +10106,11 @@ _ZNSt6vectorI14aiVertexWeightSaIS0_EE9push_backERKS0_.exit: ; preds = %708, %_ZN
   %744 = load ptr, ptr %.sroa.0534.0937, align 8
   %745 = getelementptr inbounds nuw i8, ptr %.sroa.0534.0937, i64 8
   %746 = load ptr, ptr %745, align 8
-  %747 = icmp eq ptr %744, %746
+  %.fr1214 = freeze ptr %744
+  %.fr1215 = freeze ptr %746
+  %747 = icmp eq ptr %.fr1214, %.fr1215
   %not.or.cond = select i1 %747, i64 %673, i64 1
-  %not.or.cond.fr = freeze i64 %not.or.cond
-  %.1360 = add i64 %not.or.cond.fr, %.0359938
+  %.1360 = add i64 %not.or.cond, %.0359938
   %748 = getelementptr inbounds nuw i8, ptr %.sroa.0534.0937, i64 24
   %.not647 = icmp eq ptr %748, %627
   br i1 %.not647, label %._crit_edge941, label %743

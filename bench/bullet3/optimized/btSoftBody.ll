@@ -26031,16 +26031,17 @@ define dso_local void @_ZN10btSoftBody11applyForcesEv(ptr noundef nonnull readon
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %10 = load float, ptr %9, align 8, !tbaa !791
   %.fr = freeze float %10
-  %11 = fcmp ogt float %4, 0.000000e+00
-  %12 = fcmp ogt float %6, 0.000000e+00
+  %.fr68 = freeze float %4
+  %11 = fcmp ogt float %.fr68, 0.000000e+00
+  %.fr69 = freeze float %6
+  %12 = fcmp ogt float %.fr69, 0.000000e+00
   %13 = fcmp une float %.fr65, 0.000000e+00
   %14 = fcmp ogt float %.fr, 0.000000e+00
-  %15 = select i1 %11, i1 true, i1 %12
-  %.fr60 = freeze i1 %15
+  %15 = or i1 %11, %12
   %16 = or i1 %13, %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 932
   %18 = load i32, ptr %17, align 4, !tbaa !138
-  br i1 %16, label %19, label %._crit_edge81
+  br i1 %16, label %19, label %._crit_edge85
 
 19:                                               ; preds = %1
   %20 = icmp sgt i32 %18, 0
@@ -26134,37 +26135,37 @@ _ZNK10btSoftBody9getVolumeEv.exit:                ; preds = %._crit_edge.i, %19
   %83 = load float, ptr %82, align 4, !tbaa !274
   %84 = fsub float %83, %.0.i
   %85 = fmul float %.fr, %84
-  br label %._crit_edge81
+  br label %._crit_edge85
 
-._crit_edge81:                                    ; preds = %1, %_ZNK10btSoftBody9getVolumeEv.exit
+._crit_edge85:                                    ; preds = %1, %_ZNK10btSoftBody9getVolumeEv.exit
   %.043 = phi float [ %81, %_ZNK10btSoftBody9getVolumeEv.exit ], [ 0.000000e+00, %1 ]
   %.042 = phi float [ %85, %_ZNK10btSoftBody9getVolumeEv.exit ], [ 0.000000e+00, %1 ]
   %86 = icmp sgt i32 %18, 0
   br i1 %86, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %._crit_edge81
+.lr.ph:                                           ; preds = %._crit_edge85
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 2008
   br i1 %13, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %wide.trip.count78 = zext nneg i32 %18 to i64
+  %wide.trip.count82 = zext nneg i32 %18 to i64
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %127
-  %indvars.iv75 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next76, %127 ]
+  %indvars.iv79 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next80, %127 ]
   %89 = load ptr, ptr %87, align 8, !tbaa !137
-  %90 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %89, i64 %indvars.iv75
+  %90 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %89, i64 %indvars.iv79
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 112
   %92 = load float, ptr %91, align 8, !tbaa !235
   %93 = fcmp ogt float %92, 0.000000e+00
   br i1 %93, label %94, label %127
 
 94:                                               ; preds = %.lr.ph.split.us
-  br i1 %.fr60, label %95, label %97
+  br i1 %15, label %95, label %97
 
 95:                                               ; preds = %94
-  %96 = trunc nuw nsw i64 %indvars.iv75 to i32
+  %96 = trunc nuw nsw i64 %indvars.iv79 to i32
   call void @_ZN10btSoftBody18addAeroForceToNodeERK9btVector3i(ptr noundef nonnull align 8 dereferenceable(2064) %0, ptr noundef nonnull align 4 dereferenceable(16) %88, i32 noundef %96)
   br label %97
 
@@ -26209,31 +26210,31 @@ _ZNK10btSoftBody9getVolumeEv.exit:                ; preds = %._crit_edge.i, %19
   br label %127
 
 127:                                              ; preds = %119, %97, %.lr.ph.split.us
-  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !792
+  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
+  %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
+  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !792
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %14, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split
 
 .lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph.split
-  %wide.trip.count73 = zext nneg i32 %18 to i64
+  %wide.trip.count77 = zext nneg i32 %18 to i64
   br label %.lr.ph.split.split.us
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %158
-  %indvars.iv70 = phi i64 [ 0, %.lr.ph.split.split.us.preheader ], [ %indvars.iv.next71, %158 ]
+  %indvars.iv74 = phi i64 [ 0, %.lr.ph.split.split.us.preheader ], [ %indvars.iv.next75, %158 ]
   %128 = load ptr, ptr %87, align 8, !tbaa !137
-  %129 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %128, i64 %indvars.iv70
+  %129 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %128, i64 %indvars.iv74
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 112
   %131 = load float, ptr %130, align 8, !tbaa !235
   %132 = fcmp ogt float %131, 0.000000e+00
   br i1 %132, label %133, label %158
 
 133:                                              ; preds = %.lr.ph.split.split.us
-  br i1 %.fr60, label %134, label %136
+  br i1 %15, label %134, label %136
 
 134:                                              ; preds = %133
-  %135 = trunc nuw nsw i64 %indvars.iv70 to i32
+  %135 = trunc nuw nsw i64 %indvars.iv74 to i32
   call void @_ZN10btSoftBody18addAeroForceToNodeERK9btVector3i(ptr noundef nonnull align 8 dereferenceable(2064) %0, ptr noundef nonnull align 4 dereferenceable(16) %88, i32 noundef %135)
   br label %136
 
@@ -26265,12 +26266,12 @@ _ZNK10btSoftBody9getVolumeEv.exit:                ; preds = %._crit_edge.i, %19
   br label %158
 
 158:                                              ; preds = %136, %.lr.ph.split.split.us
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !792
+  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
+  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !792
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %.fr60, label %.lr.ph.split.split.split.us.preheader, label %._crit_edge
+  br i1 %15, label %.lr.ph.split.split.split.us.preheader, label %._crit_edge
 
 .lr.ph.split.split.split.us.preheader:            ; preds = %.lr.ph.split.split
   %wide.trip.count = zext nneg i32 %18 to i64
@@ -26294,7 +26295,7 @@ _ZNK10btSoftBody9getVolumeEv.exit:                ; preds = %._crit_edge.i, %19
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !792
 
-._crit_edge:                                      ; preds = %165, %158, %127, %.lr.ph.split.split, %._crit_edge81
+._crit_edge:                                      ; preds = %165, %158, %127, %.lr.ph.split.split, %._crit_edge85
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 1028
   %167 = load i32, ptr %166, align 4, !tbaa !150
   %168 = icmp sgt i32 %167, 0
@@ -26308,8 +26309,8 @@ _ZNK10btSoftBody9getVolumeEv.exit:                ; preds = %._crit_edge.i, %19
   %.161 = phi i32 [ 0, %.lr.ph63 ], [ %171, %170 ]
   call void @_ZN10btSoftBody18addAeroForceToFaceERK9btVector3i(ptr noundef nonnull align 8 dereferenceable(2064) %0, ptr noundef nonnull align 4 dereferenceable(16) %169, i32 noundef %.161)
   %171 = add nuw nsw i32 %.161, 1
-  %exitcond80.not = icmp eq i32 %171, %167
-  br i1 %exitcond80.not, label %._crit_edge64, label %170, !llvm.loop !793
+  %exitcond84.not = icmp eq i32 %171, %167
+  br i1 %exitcond84.not, label %._crit_edge64, label %170, !llvm.loop !793
 
 ._crit_edge64:                                    ; preds = %170, %._crit_edge
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #45

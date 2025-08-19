@@ -27374,32 +27374,35 @@ define dso_local void @_ZN5ImGui36RenderColorRectWithAlphaCheckerboardEP10ImDraw
   %10 = alloca %struct.ImVec2, align 8
   %11 = alloca %struct.ImVec2, align 8
   %12 = alloca %struct.ImVec2, align 8
-  store <2 x float> %1, ptr %9, align 8
-  store <2 x float> %2, ptr %10, align 8
+  %.fr91 = freeze <2 x float> %2
+  %.fr90 = freeze <2 x float> %1
+  %.fr = freeze <2 x float> %5
+  store <2 x float> %.fr90, ptr %9, align 8
+  store <2 x float> %.fr91, ptr %10, align 8
   %13 = and i32 %7, 496
   %14 = icmp eq i32 %13, 0
   %spec.store.select = select i1 %14, i32 240, i32 %7
   %.not = icmp ugt i32 %3, -16777217
-  %15 = extractelement <2 x float> %1, i64 1
-  %16 = extractelement <2 x float> %2, i64 1
-  %17 = extractelement <2 x float> %1, i64 0
-  %18 = extractelement <2 x float> %2, i64 0
-  br i1 %.not, label %131, label %19
+  %15 = extractelement <2 x float> %.fr90, i64 0
+  %16 = extractelement <2 x float> %.fr91, i64 0
+  br i1 %.not, label %131, label %17
 
-19:                                               ; preds = %8
+17:                                               ; preds = %8
+  %18 = extractelement <2 x float> %.fr91, i64 1
+  %19 = extractelement <2 x float> %.fr90, i64 1
   %20 = tail call noundef i32 @_Z18ImAlphaBlendColorsjj(i32 noundef -3355444, i32 noundef %3)
   %21 = tail call noundef i32 @_ZN5ImGui11GetColorU32Ejf(i32 noundef %20, float noundef 1.000000e+00)
   %22 = tail call noundef i32 @_Z18ImAlphaBlendColorsjj(i32 noundef -8355712, i32 noundef %3)
   %23 = tail call noundef i32 @_ZN5ImGui11GetColorU32Ejf(i32 noundef %22, float noundef 1.000000e+00)
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %10, i32 noundef %21, float noundef %6, i32 noundef %spec.store.select)
-  %foldExtExtBinop = fadd <2 x float> %5, %1
+  %foldExtExtBinop = fadd <2 x float> %.fr, %.fr90
   %24 = extractelement <2 x float> %foldExtExtBinop, i64 1
-  %25 = fcmp olt float %24, %16
+  %25 = fcmp olt float %24, %18
   br i1 %25, label %.lr.ph66, label %.loopexit62
 
-.lr.ph66:                                         ; preds = %19
-  %foldExtExtBinop83 = fadd <2 x float> %5, %1
-  %26 = extractelement <2 x float> %foldExtExtBinop83, i64 0
+.lr.ph66:                                         ; preds = %17
+  %foldExtExtBinop99 = fadd <2 x float> %.fr, %.fr90
+  %26 = extractelement <2 x float> %foldExtExtBinop99, i64 0
   %27 = icmp eq i32 %spec.store.select, 256
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -27417,13 +27420,13 @@ define dso_local void @_ZN5ImGui36RenderColorRectWithAlphaCheckerboardEP10ImDraw
 .lr.ph66.split:                                   ; preds = %.lr.ph66, %.loopexit
   %.05365 = phi i32 [ %130, %.loopexit ], [ 0, %.lr.ph66 ]
   %.05564 = phi float [ %43, %.loopexit ], [ %24, %.lr.ph66 ]
-  %39 = fcmp olt float %.05564, %15
-  %40 = fcmp ogt float %.05564, %16
-  %41 = select i1 %40, float %16, float %.05564
-  %42 = select i1 %39, float %15, float %41
+  %39 = fcmp olt float %.05564, %19
+  %40 = fcmp ogt float %.05564, %18
+  %41 = select i1 %40, float %18, float %.05564
+  %42 = select i1 %39, float %19, float %41
   %43 = fadd float %4, %.05564
-  %44 = fcmp olt float %43, %16
-  %45 = select i1 %44, float %43, float %16
+  %44 = fcmp olt float %43, %18
+  %45 = select i1 %44, float %43, float %18
   %46 = fcmp ugt float %45, %42
   br i1 %46, label %47, label %.loopexit
 
@@ -27432,23 +27435,23 @@ define dso_local void @_ZN5ImGui36RenderColorRectWithAlphaCheckerboardEP10ImDraw
   %49 = uitofp nneg i32 %48 to float
   %50 = fmul float %4, %49
   %51 = fadd float %50, %26
-  %52 = fcmp olt float %51, %18
+  %52 = fcmp olt float %51, %16
   br i1 %52, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %47
-  %53 = fcmp ugt float %42, %15
-  %54 = fcmp ult float %45, %16
+  %53 = fcmp ugt float %42, %19
+  %54 = fcmp ult float %45, %18
   br label %55
 
 55:                                               ; preds = %.lr.ph, %127
   %.05463 = phi float [ %51, %.lr.ph ], [ %128, %127 ]
-  %56 = fcmp olt float %.05463, %17
-  %57 = fcmp ogt float %.05463, %18
-  %58 = select i1 %57, float %18, float %.05463
-  %59 = select i1 %56, float %17, float %58
+  %56 = fcmp olt float %.05463, %15
+  %57 = fcmp ogt float %.05463, %16
+  %58 = select i1 %57, float %16, float %.05463
+  %59 = select i1 %56, float %15, float %58
   %60 = fadd float %4, %.05463
-  %61 = fcmp olt float %60, %18
-  %62 = select i1 %61, float %60, float %18
+  %61 = fcmp olt float %60, %16
+  %62 = select i1 %61, float %60, float %16
   %63 = fcmp ugt float %62, %59
   br i1 %63, label %64, label %127
 
@@ -27456,9 +27459,9 @@ define dso_local void @_ZN5ImGui36RenderColorRectWithAlphaCheckerboardEP10ImDraw
   br i1 %53, label %70, label %65
 
 65:                                               ; preds = %64
-  %66 = fcmp ugt float %59, %17
+  %66 = fcmp ugt float %59, %15
   %.1 = select i1 %66, i32 256, i32 272
-  %67 = fcmp ult float %62, %18
+  %67 = fcmp ult float %62, %16
   br i1 %67, label %70, label %68
 
 68:                                               ; preds = %65
@@ -27470,10 +27473,10 @@ define dso_local void @_ZN5ImGui36RenderColorRectWithAlphaCheckerboardEP10ImDraw
   br i1 %54, label %77, label %71
 
 71:                                               ; preds = %70
-  %72 = fcmp ugt float %59, %17
+  %72 = fcmp ugt float %59, %15
   %73 = or i32 %.0, 64
   %.3 = select i1 %72, i32 %.0, i32 %73
-  %74 = fcmp ult float %62, %18
+  %74 = fcmp ult float %62, %16
   br i1 %74, label %77, label %75
 
 75:                                               ; preds = %71
@@ -27581,7 +27584,7 @@ _ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi.exit: ; preds = %83, %124
 
 127:                                              ; preds = %55, %_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi.exit
   %128 = fadd float %38, %.05463
-  %129 = fcmp olt float %128, %18
+  %129 = fcmp olt float %128, %16
   br i1 %129, label %55, label %.loopexit, !llvm.loop !567
 
 .loopexit:                                        ; preds = %127, %47, %.lr.ph66.split
@@ -27592,7 +27595,7 @@ _ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi.exit: ; preds = %83, %124
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %10, i32 noundef %3, float noundef %6, i32 noundef %spec.store.select)
   br label %.loopexit62
 
-.loopexit62:                                      ; preds = %.loopexit, %.lr.ph66, %19, %131
+.loopexit62:                                      ; preds = %.loopexit, %.lr.ph66, %17, %131
   ret void
 }
 

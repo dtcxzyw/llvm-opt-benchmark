@@ -4577,8 +4577,9 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE9push_backB8ne190000EOf.exit: ; preds = %53,
 
 81:                                               ; preds = %._crit_edge
   %82 = tail call i64 @_ZN3tev11ImageCanvas14getImageCoordsEPKNS_5ImageEN7nanogui5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull %80, i64 %1)
-  %.sroa.0.0.extract.trunc = trunc i64 %82 to i32
-  %.sroa.3.0.extract.shift = lshr i64 %82, 32
+  %.fr = freeze i64 %82
+  %.sroa.0.0.extract.trunc = trunc i64 %.fr to i32
+  %.sroa.3.0.extract.shift = lshr i64 %.fr, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %83 = load ptr, ptr %7, align 8
   %84 = load ptr, ptr %2, align 8
@@ -4586,10 +4587,10 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE9push_backB8ne190000EOf.exit: ; preds = %53,
   br i1 %.not92, label %.loopexit, label %.lr.ph91
 
 .lr.ph91:                                         ; preds = %81
-  %85 = and i64 %82, -9223372034707292160
+  %85 = and i64 %.fr, -9223372034707292160
   %or.cond = icmp eq i64 %85, 0
   %86 = icmp slt i32 %.sroa.0.0.extract.trunc, 0
-  %87 = icmp sgt i64 %82, -1
+  %87 = icmp sgt i64 %.fr, -1
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 300
   br label %89
 
@@ -4598,7 +4599,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE9push_backB8ne190000EOf.exit: ; preds = %53,
   %90 = load ptr, ptr %3, align 8
   %91 = getelementptr inbounds %"class.std::__1::basic_string", ptr %90, i64 %.05189
   %92 = tail call noundef zeroext i1 @_ZN3tev7Channel7isAlphaERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %91)
-  %or.cond86 = select i1 %92, i1 %or.cond, i1 false
+  %or.cond86 = and i1 %or.cond, %92
   %.pre = load ptr, ptr %79, align 8
   br i1 %or.cond86, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.i.i.critedge, label %_ZNK3tev5Image8containsERKN7nanogui5ArrayIiLm2EEE.exit.thread
 
@@ -4616,10 +4617,11 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.i13.i.critedge: ; preds = %_ZN7nanog
   %100 = load i32, ptr %99, align 4
   %101 = getelementptr inbounds nuw i8, ptr %.pre, i64 240
   %102 = load i32, ptr %101, align 4
-  %103 = sub nsw i32 %100, %102
+  %.fr94 = freeze i32 %100
+  %.fr95 = freeze i32 %102
+  %103 = sub i32 %.fr94, %.fr95
   %104 = icmp sgt i32 %103, %.sroa.3.0.extract.trunc
-  %cond.fr = freeze i1 %104
-  br i1 %cond.fr, label %105, label %_ZNK3tev5Image8containsERKN7nanogui5ArrayIiLm2EEE.exit.thread
+  br i1 %104, label %105, label %_ZNK3tev5Image8containsERKN7nanogui5ArrayIiLm2EEE.exit.thread
 
 105:                                              ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i.i13.i.critedge
   br label %_ZNK3tev5Image8containsERKN7nanogui5ArrayIiLm2EEE.exit.thread
@@ -4637,7 +4639,7 @@ _ZNK3tev5Image8containsERKN7nanogui5ArrayIiLm2EEE.exit.thread: ; preds = %_ZN7na
   %.not.i.i58 = icmp eq ptr %113, %114
   %.not84 = icmp eq ptr %113, null
   %.not = or i1 %.not84, %.not.i.i58
-  %brmerge = select i1 %.not, i1 true, i1 %86
+  %brmerge = or i1 %.not, %86
   %.mux = select i1 %.not, float %106, float 0.000000e+00
   br i1 %brmerge, label %_ZNK3tev7Channel4evalEN7nanogui5ArrayIiLm2EEE.exit68, label %115
 

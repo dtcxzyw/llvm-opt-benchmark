@@ -2773,12 +2773,13 @@ _ZNSt3__16chrono10__sys_infoD2Ev.exit109.i.i.i.i.i: ; preds = %280
 
 .critedge6.i.i.i.i.i:                             ; preds = %.critedge4.i.i.i.i.i, %280
   %305 = call fastcc i64 @_ZNSt3__16chronoL22__until_to_sys_secondsB8ne210000ERKNS0_4__tz14__continuationE(ptr noundef nonnull align 8 dereferenceable(112) %24), !noalias !149
-  %306 = icmp ne i64 %305, 9223372036854775807
+  %.fr311.i.i.i.i.i = freeze i64 %305
+  %306 = icmp ne i64 %.fr311.i.i.i.i.i, 9223372036854775807
   %307 = getelementptr inbounds nuw i8, ptr %24, i64 104
   %308 = load i32, ptr %307, align 8, !noalias !149
-  %309 = icmp eq i32 %308, 0
-  %narrow.i117.i.i.i.i.i = select i1 %306, i1 %309, i1 false
-  %narrow.i117.fr.i.i.i.i.i = freeze i1 %narrow.i117.i.i.i.i.i
+  %.fr.i.i.i.i.i = freeze i32 %308
+  %309 = icmp eq i32 %.fr.i.i.i.i.i, 0
+  %narrow.i117.i.i.i.i.i = and i1 %306, %309
   %.sroa.24.0299.i.i.i.i.i = extractvalue { i64, ptr } %199, 1
   %310 = load ptr, ptr %149, align 8, !tbaa !150, !noalias !149
   call void @llvm.assume(i1 true) [ "align"(ptr %310, i64 8) ]
@@ -2786,7 +2787,7 @@ _ZNSt3__16chrono10__sys_infoD2Ev.exit109.i.i.i.i.i: ; preds = %280
   br i1 %311, label %_ZNSt3__16chrono10__sys_infoD2Ev.exit148.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.critedge6.i.i.i.i.i
-  br i1 %narrow.i117.fr.i.i.i.i.i, label %.lr.ph.split.us.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i
+  br i1 %narrow.i117.i.i.i.i.i, label %.lr.ph.split.us.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i
 
 .lr.ph.split.us.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i, %326
   %.sroa.24.0303.us.i.i.i.i.i = phi ptr [ %.sroa.24.0.us.i.i.i.i.i, %326 ], [ %.sroa.24.0299.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
@@ -2795,7 +2796,7 @@ _ZNSt3__16chrono10__sys_infoD2Ev.exit109.i.i.i.i.i: ; preds = %280
   %.sroa.0204.0300.us.i.i.i.i.i = phi i64 [ %329, %326 ], [ %200, %.lr.ph.i.i.i.i.i ]
   %312 = getelementptr inbounds nuw i8, ptr %.sroa.0240.0302.us.i.i.i.i.i, i64 40
   %.sroa.028.0.copyload.us.i.i.i.i.i = load i64, ptr %312, align 8, !tbaa !4, !noalias !149
-  %313 = sub nsw i64 %305, %.sroa.028.0.copyload.us.i.i.i.i.i
+  %313 = sub nsw i64 %.fr311.i.i.i.i.i, %.sroa.028.0.copyload.us.i.i.i.i.i
   %.sroa.speculated230.us.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %.sroa.0.0.copyload.i.i.i.i, i64 %.sroa.0223.0301.us.i.i.i.i.i)
   %.sroa.speculated163.us.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %.sroa.0204.0300.us.i.i.i.i.i, i64 %313)
   %314 = sub nsw i64 %.sroa.speculated163.us.i.i.i.i.i, %.sroa.speculated230.us.i.i.i.i.i
@@ -2811,7 +2812,7 @@ _ZNSt3__16chrono10__sys_infoD2Ev.exit109.i.i.i.i.i: ; preds = %280
   %319 = extractvalue { i64, ptr } %318, 0
   %320 = extractvalue { i64, ptr } %318, 1
   %.sroa.019.0.copyload.us.i.i.i.i.i = load i64, ptr %317, align 8, !tbaa !4, !noalias !149
-  %321 = sub nsw i64 %305, %.sroa.019.0.copyload.us.i.i.i.i.i
+  %321 = sub nsw i64 %.fr311.i.i.i.i.i, %.sroa.019.0.copyload.us.i.i.i.i.i
   br label %322
 
 322:                                              ; preds = %316, %.lr.ph.split.us.i.i.i.i.i
@@ -2844,7 +2845,7 @@ _ZNSt3__16chrono10__sys_infoD2Ev.exit109.i.i.i.i.i: ; preds = %280
   %.sroa.0223.0301.i.i.i.i.i = phi i64 [ %.sroa.0204.1.i.i.i.i.i, %358 ], [ %197, %.lr.ph.i.i.i.i.i ]
   %.sroa.0204.0300.i.i.i.i.i = phi i64 [ %361, %358 ], [ %200, %.lr.ph.i.i.i.i.i ]
   %.sroa.speculated230.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %.sroa.0.0.copyload.i.i.i.i, i64 %.sroa.0223.0301.i.i.i.i.i)
-  %.sroa.speculated163.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %.sroa.0204.0300.i.i.i.i.i, i64 %305)
+  %.sroa.speculated163.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %.sroa.0204.0300.i.i.i.i.i, i64 %.fr311.i.i.i.i.i)
   %332 = sub nsw i64 %.sroa.speculated163.i.i.i.i.i, %.sroa.speculated230.i.i.i.i.i
   %spec.select.i.i.i.i.i.i = call i64 @llvm.abs.i64(i64 %332, i1 true)
   %333 = icmp samesign ult i64 %spec.select.i.i.i.i.i.i, 43200
@@ -2866,12 +2867,12 @@ _ZNSt3__16chrono10__sys_infoD2Ev.exit109.i.i.i.i.i: ; preds = %280
   %340 = icmp sge i64 %.sroa.speculated267.i.i.i.i.i, %.sroa.0223.0301.i.i.i.i.i
   %341 = icmp slt i64 %.sroa.speculated267.i.i.i.i.i, %.sroa.0204.1.i.i.i.i.i
   %or.cond291.i.i.i.i.i = select i1 %340, i1 %341, i1 false
-  %342 = icmp sge i64 %.sroa.0204.1.i.i.i.i.i, %305
+  %342 = icmp sge i64 %.sroa.0204.1.i.i.i.i.i, %.fr311.i.i.i.i.i
   %or.cond293.i.i.i.i.i = select i1 %or.cond291.i.i.i.i.i, i1 true, i1 %342
   br i1 %or.cond293.i.i.i.i.i, label %.critedge91.i.i.i.i.i, label %358
 
 .critedge91.i.i.i.i.i:                            ; preds = %339, %322
-  %.us-phi.i.i.i.i.i = phi i64 [ %.sroa.0157.0.us.i.i.i.i.i, %322 ], [ %305, %339 ]
+  %.us-phi.i.i.i.i.i = phi i64 [ %.sroa.0157.0.us.i.i.i.i.i, %322 ], [ %.fr311.i.i.i.i.i, %339 ]
   %.us-phi305.i.i.i.i.i = phi i64 [ %.sroa.0204.1.us.i.i.i.i.i, %322 ], [ %.sroa.0204.1.i.i.i.i.i, %339 ]
   %.us-phi306.i.i.i.i.i = phi ptr [ %.sroa.0240.1.us.i.i.i.i.i, %322 ], [ %.sroa.0240.1.i.i.i.i.i, %339 ]
   %.us-phi307.i.i.i.i.i = phi i64 [ %.sroa.speculated230.us.i.i.i.i.i, %322 ], [ %.sroa.speculated230.i.i.i.i.i, %339 ]
@@ -2925,8 +2926,8 @@ _ZNSt3__16chrono10__sys_infoD2Ev.exit148.i.i.i.i.i: ; preds = %358, %326, %.crit
   %364 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %365 = getelementptr inbounds nuw i8, ptr %.sroa.0240.0.lcssa.i.i.i.i.i, i64 40
   %.sroa.07.0.copyload.i.i.i.i.i = load i64, ptr %365, align 8, !tbaa !4, !noalias !149
-  %366 = select i1 %narrow.i117.fr.i.i.i.i.i, i64 %.sroa.07.0.copyload.i.i.i.i.i, i64 0
-  %367 = sub nsw i64 %305, %366
+  %366 = select i1 %narrow.i117.i.i.i.i.i, i64 %.sroa.07.0.copyload.i.i.i.i.i, i64 0
+  %367 = sub nsw i64 %.fr311.i.i.i.i.i, %366
   store i64 %367, ptr %364, align 8, !noalias !149
   %368 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %369 = load i64, ptr %148, align 8, !tbaa !4, !noalias !149
@@ -24849,7 +24850,8 @@ define linkonce_odr hidden void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcE
   store ptr null, ptr %2, align 8, !tbaa !659
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
+  %.fr22 = freeze i8 %4
+  %5 = and i8 %.fr22, 1
   %.not.i.i = icmp eq i8 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
@@ -24857,10 +24859,10 @@ define linkonce_odr hidden void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcE
   %9 = select i1 %.not.i.i, ptr %8, ptr %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i64, ptr %10, align 8
-  %12 = lshr i8 %4, 1
+  %.fr20 = freeze i64 %11
+  %12 = lshr i8 %.fr22, 1
   %13 = zext nneg i8 %12 to i64
-  %14 = select i1 %.not.i.i, i64 %13, i64 %11
-  %.fr19 = freeze i64 %14
+  %14 = select i1 %.not.i.i, i64 %13, i64 %.fr20
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = load i32, ptr %15, align 8, !tbaa !654
   %17 = and i32 %16, 8
@@ -24868,7 +24870,7 @@ define linkonce_odr hidden void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcE
   br i1 %.not, label %23, label %18
 
 18:                                               ; preds = %1
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %.fr19
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %14
   store ptr %19, ptr %2, align 8, !tbaa !659
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %20, align 8, !tbaa !662
@@ -24884,7 +24886,7 @@ define linkonce_odr hidden void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcE
   br i1 %.not12, label %69, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %9, i64 %.fr19
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 %14
   store ptr %26, ptr %2, align 8, !tbaa !659
   %27 = load i64, ptr %3, align 8
   %28 = and i64 %27, -2
@@ -24894,7 +24896,7 @@ define linkonce_odr hidden void @_ZNSt3__115basic_stringbufIcNS_11char_traitsIcE
   %.not.i.i.i = icmp eq i64 %31, 0
   %32 = lshr i64 %27, 1
   %33 = and i64 %32, 127
-  %34 = select i1 %.not.i.i.i, i64 %33, i64 %11
+  %34 = select i1 %.not.i.i.i, i64 %33, i64 %.fr20
   %35 = icmp ugt i64 %30, %34
   br i1 %35, label %36, label %39
 
@@ -24943,23 +24945,23 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeB8ne210000
   br i1 %.not13, label %69, label %.preheader
 
 .preheader:                                       ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeB8ne210000Em.exit
-  %58 = icmp ugt i64 %.fr19, 2147483647
+  %58 = icmp ugt i64 %14, 2147483647
   br i1 %58, label %.lr.ph.preheader, label %65
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %59 = add i64 %.fr19, -2147483648
+  %59 = add i64 %14, -2147483648
   %60 = urem i64 %59, 2147483647
   %61 = sub nuw i64 %59, %60
   %62 = getelementptr i8, ptr %9, i64 %61
   %scevgep = getelementptr i8, ptr %62, i64 2147483647
-  %63 = add i64 %.fr19, -2147483647
+  %63 = add i64 %14, -2147483647
   %64 = sub i64 %63, %61
   store ptr %scevgep, ptr %53, align 8, !tbaa !660
   br label %65
 
 65:                                               ; preds = %.lr.ph.preheader, %.preheader
   %66 = phi ptr [ %scevgep, %.lr.ph.preheader ], [ %9, %.preheader ]
-  %.0.lcssa = phi i64 [ %64, %.lr.ph.preheader ], [ %.fr19, %.preheader ]
+  %.0.lcssa = phi i64 [ %64, %.lr.ph.preheader ], [ %14, %.preheader ]
   %.not14 = icmp eq i64 %.0.lcssa, 0
   br i1 %.not14, label %69, label %67
 

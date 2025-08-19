@@ -5665,30 +5665,34 @@ luaT_gettm.exit36.i:                              ; preds = %luaH_getstr.exit.i3
 645:                                              ; preds = %644
   %646 = load double, ptr %.010.i.i.i, align 8, !tbaa !46
   %647 = load double, ptr %.010.i.i34.i, align 8, !tbaa !46
-  %648 = fcmp oeq double %646, %647
-  %cond.fr44.i = freeze i1 %648
-  br i1 %cond.fr44.i, label %get_compTM.exit, label %luaV_equalval.exit
+  %.fr47.i = freeze double %646
+  %.fr48.i = freeze double %647
+  %648 = fcmp oeq double %.fr47.i, %.fr48.i
+  br i1 %648, label %get_compTM.exit, label %luaV_equalval.exit
 
 649:                                              ; preds = %644
   %650 = load i32, ptr %.010.i.i.i, align 8, !tbaa !46
   %651 = load i32, ptr %.010.i.i34.i, align 8, !tbaa !46
-  %652 = icmp eq i32 %650, %651
-  %cond.fr45.i = freeze i1 %652
-  br i1 %cond.fr45.i, label %get_compTM.exit, label %luaV_equalval.exit
+  %.fr.i = freeze i32 %650
+  %.fr46.i = freeze i32 %651
+  %652 = icmp eq i32 %.fr.i, %.fr46.i
+  br i1 %652, label %get_compTM.exit, label %luaV_equalval.exit
 
 653:                                              ; preds = %644
   %654 = load ptr, ptr %.010.i.i.i, align 8, !tbaa !46
   %655 = load ptr, ptr %.010.i.i34.i, align 8, !tbaa !46
-  %656 = icmp eq ptr %654, %655
-  %cond.fr43.i = freeze i1 %656
-  br i1 %cond.fr43.i, label %get_compTM.exit, label %luaV_equalval.exit
+  %.fr51.i = freeze ptr %654
+  %.fr52.i = freeze ptr %655
+  %656 = icmp eq ptr %.fr51.i, %.fr52.i
+  br i1 %656, label %get_compTM.exit, label %luaV_equalval.exit
 
 luaO_rawequalObj.exit.i:                          ; preds = %644
   %657 = load ptr, ptr %.010.i.i.i, align 8, !tbaa !46
   %658 = load ptr, ptr %.010.i.i34.i, align 8, !tbaa !46
-  %659 = icmp eq ptr %657, %658
-  %cond.fr.i = freeze i1 %659
-  br i1 %cond.fr.i, label %get_compTM.exit, label %luaV_equalval.exit
+  %.fr49.i = freeze ptr %657
+  %.fr50.i = freeze ptr %658
+  %659 = icmp eq ptr %.fr49.i, %.fr50.i
+  br i1 %659, label %get_compTM.exit, label %luaV_equalval.exit
 
 get_compTM.exit:                                  ; preds = %645, %649, %653, %luaO_rawequalObj.exit.i, %luaT_gettm.exit.i
   %660 = load ptr, ptr %44, align 8, !tbaa !62

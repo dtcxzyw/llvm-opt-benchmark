@@ -3347,8 +3347,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.split:                                 ; preds = %.preheader
   %90 = icmp ult i64 %.165108, %31
-  %.fr = freeze i1 %90
-  br i1 %.fr, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
+  br i1 %90, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %106
   %.263.us81 = phi i64 [ %91, %106 ], [ %.162109, %.preheader.split ]
@@ -3626,8 +3625,8 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h456073b07195e3c9
   %.360 = phi i64 [ %.05766, %168 ], [ %.05766, %176 ], [ %.05766, %180 ], [ %.05766, %188 ], [ %.056, %221 ], [ %.05766, %219 ], [ %.05766, %207 ], [ %.05766, %204 ]
   %.5 = phi i8 [ %.067, %168 ], [ %.067, %176 ], [ %.067, %180 ], [ %.067, %188 ], [ 1, %221 ], [ %.067, %219 ], [ %.067, %207 ], [ %.067, %204 ]
   %223 = add nuw i64 %.06164, 1
-  %exitcond155.not = icmp eq i64 %223, %34
-  br i1 %exitcond155.not, label %._crit_edge, label %50
+  %exitcond156.not = icmp eq i64 %223, %34
+  br i1 %exitcond156.not, label %._crit_edge, label %50
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3846,8 +3845,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.split:                                 ; preds = %.preheader
   %112 = icmp ult i64 %.165127, %31
-  %.fr106 = freeze i1 %112
-  br i1 %.fr106, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
+  br i1 %112, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %130
   %.263.us92 = phi i64 [ %113, %130 ], [ %.162128, %.preheader.split ]
@@ -4351,8 +4349,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.split:                                 ; preds = %.preheader
   %103 = icmp ult i64 %.165137, %30
-  %.fr111 = freeze i1 %103
-  br i1 %.fr111, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
+  br i1 %103, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %121
   %.263.us97 = phi i64 [ %104, %121 ], [ %.162138, %.preheader.split ]
@@ -4852,8 +4849,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.split:                                 ; preds = %.preheader
   %90 = icmp ult i64 %.165108, %31
-  %.fr = freeze i1 %90
-  br i1 %.fr, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
+  br i1 %90, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %106
   %.263.us81 = phi i64 [ %91, %106 ], [ %.162109, %.preheader.split ]
@@ -5131,8 +5127,8 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h6e6e2914e7e6a3a8
   %.360 = phi i64 [ %.05766, %168 ], [ %.05766, %176 ], [ %.05766, %180 ], [ %.05766, %188 ], [ %.056, %221 ], [ %.05766, %219 ], [ %.05766, %207 ], [ %.05766, %204 ]
   %.5 = phi i8 [ %.067, %168 ], [ %.067, %176 ], [ %.067, %180 ], [ %.067, %188 ], [ 1, %221 ], [ %.067, %219 ], [ %.067, %207 ], [ %.067, %204 ]
   %223 = add nuw i64 %.06164, 1
-  %exitcond155.not = icmp eq i64 %223, %34
-  br i1 %exitcond155.not, label %._crit_edge, label %50
+  %exitcond156.not = icmp eq i64 %223, %34
+  br i1 %exitcond156.not, label %._crit_edge, label %50
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -27125,14 +27125,15 @@ define dso_local void @_ZN5ImGui19FindHoveredWindowExERK6ImVec2bPP11ImGuiWindowS
   %28 = load float, ptr %0, align 4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %30 = load float, ptr %29, align 4
+  %.fr = freeze float %30
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 4960
   %32 = zext nneg i32 %24 to i64
   br label %33
 
 33:                                               ; preds = %.lr.ph, %.thread93
   %indvars.iv = phi i64 [ %32, %.lr.ph ], [ %indvars.iv.next, %.thread93 ]
-  %.1118 = phi ptr [ %.0, %.lr.ph ], [ %.398, %.thread93 ]
-  %.048117 = phi ptr [ null, %.lr.ph ], [ %.25097, %.thread93 ]
+  %.1125 = phi ptr [ %.0, %.lr.ph ], [ %.398, %.thread93 ]
+  %.048124 = phi ptr [ null, %.lr.ph ], [ %.25097, %.thread93 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %34 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.next
   %35 = load ptr, ptr %34, align 8, !tbaa !665
@@ -27173,7 +27174,7 @@ define dso_local void @_ZN5ImGui19FindHoveredWindowExERK6ImVec2bPP11ImGuiWindowS
   %57 = getelementptr inbounds nuw i8, ptr %35, i64 516
   %58 = load float, ptr %57, align 4, !tbaa !395
   %59 = fsub float %58, %51
-  %60 = fcmp ult float %30, %59
+  %60 = fcmp ult float %.fr, %59
   br i1 %60, label %.thread93, label %61
 
 61:                                               ; preds = %56
@@ -27187,7 +27188,7 @@ _ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit:   ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %35, i64 524
   %67 = load float, ptr %66, align 4, !tbaa !396
   %68 = fadd float %67, %51
-  %69 = fcmp olt float %30, %68
+  %69 = fcmp olt float %.fr, %68
   br i1 %69, label %70, label %.thread93
 
 70:                                               ; preds = %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit
@@ -27207,11 +27208,14 @@ _ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit:   ; preds = %61
   %81 = load float, ptr %80, align 4, !tbaa !847
   %82 = getelementptr inbounds nuw i8, ptr %35, i64 630
   %83 = load i16, ptr %82, align 2, !tbaa !848
-  %84 = sitofp i16 %83 to float
-  %85 = fadd float %81, %84
+  %.fr120 = freeze i16 %83
+  %84 = sitofp i16 %.fr120 to float
+  %.fr118 = freeze float %81
+  %85 = fadd float %.fr118, %84
   %86 = getelementptr inbounds nuw i8, ptr %35, i64 626
   %87 = load i16, ptr %86, align 2, !tbaa !849
-  %88 = sitofp i16 %87 to float
+  %.fr121 = freeze i16 %87
+  %88 = sitofp i16 %.fr121 to float
   %89 = fadd float %85, %88
   %90 = fcmp ult float %28, %79
   br i1 %90, label %.thread87, label %91
@@ -27219,7 +27223,7 @@ _ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit:   ; preds = %61
 91:                                               ; preds = %73
   %92 = sitofp i16 %72 to float
   %93 = fadd float %79, %92
-  %94 = fcmp oge float %30, %85
+  %94 = fcmp oge float %.fr, %85
   %95 = fcmp olt float %28, %93
   %or.cond.i = and i1 %95, %94
   br i1 %or.cond.i, label %_ZNK6ImRect8ContainsERK6ImVec2.exit, label %.thread87
@@ -27228,9 +27232,8 @@ _ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit:   ; preds = %61
   br i1 %1, label %.thread102, label %99
 
 _ZNK6ImRect8ContainsERK6ImVec2.exit:              ; preds = %91
-  %96 = fcmp olt float %30, %89
-  %cond.fr = freeze i1 %96
-  br i1 %cond.fr, label %.thread93, label %97
+  %96 = fcmp olt float %.fr, %89
+  br i1 %96, label %.thread93, label %97
 
 97:                                               ; preds = %_ZNK6ImRect8ContainsERK6ImVec2.exit
   br i1 %1, label %.thread102, label %99
@@ -27239,9 +27242,9 @@ _ZNK6ImRect8ContainsERK6ImVec2.exit:              ; preds = %91
   br i1 %1, label %.thread102, label %99
 
 99:                                               ; preds = %.thread87, %97, %98
-  %100 = icmp eq ptr %.1118, null
-  %spec.select64 = select i1 %100, ptr %35, ptr %.1118
-  %101 = icmp eq ptr %.048117, null
+  %100 = icmp eq ptr %.1125, null
+  %spec.select64 = select i1 %100, ptr %35, ptr %.1125
+  %101 = icmp eq ptr %.048124, null
   br i1 %101, label %102, label %109
 
 102:                                              ; preds = %99
@@ -27258,18 +27261,18 @@ _ZNK6ImRect8ContainsERK6ImVec2.exit:              ; preds = %91
   br i1 %.not62, label %.thread93, label %109
 
 109:                                              ; preds = %102, %104, %99
-  %.452 = phi ptr [ %.048117, %99 ], [ %35, %104 ], [ %35, %102 ]
-  %.not115 = icmp eq ptr %spec.select64, null
-  br i1 %.not115, label %.thread93, label %.thread102
+  %.452 = phi ptr [ %.048124, %99 ], [ %35, %104 ], [ %35, %102 ]
+  %.not122 = icmp eq ptr %spec.select64, null
+  br i1 %.not122, label %.thread93, label %.thread102
 
 .thread93:                                        ; preds = %_ZNK6ImRect8ContainsERK6ImVec2.exit, %104, %47, %56, %61, %109, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit, %43, %33, %39
-  %.398 = phi ptr [ null, %109 ], [ %.1118, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit ], [ %.1118, %43 ], [ %.1118, %33 ], [ %.1118, %39 ], [ %.1118, %61 ], [ %.1118, %56 ], [ %.1118, %47 ], [ %spec.select64, %104 ], [ %.1118, %_ZNK6ImRect8ContainsERK6ImVec2.exit ]
-  %.25097 = phi ptr [ %.452, %109 ], [ %.048117, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit ], [ %.048117, %43 ], [ %.048117, %33 ], [ %.048117, %39 ], [ %.048117, %61 ], [ %.048117, %56 ], [ %.048117, %47 ], [ null, %104 ], [ %.048117, %_ZNK6ImRect8ContainsERK6ImVec2.exit ]
+  %.398 = phi ptr [ null, %109 ], [ %.1125, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit ], [ %.1125, %43 ], [ %.1125, %33 ], [ %.1125, %39 ], [ %.1125, %61 ], [ %.1125, %56 ], [ %.1125, %47 ], [ %spec.select64, %104 ], [ %.1125, %_ZNK6ImRect8ContainsERK6ImVec2.exit ]
+  %.25097 = phi ptr [ %.452, %109 ], [ %.048124, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit ], [ %.048124, %43 ], [ %.048124, %33 ], [ %.048124, %39 ], [ %.048124, %61 ], [ %.048124, %56 ], [ %.048124, %47 ], [ null, %104 ], [ %.048124, %_ZNK6ImRect8ContainsERK6ImVec2.exit ]
   %110 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %110, label %33, label %.thread102, !llvm.loop !850
 
 .thread102:                                       ; preds = %.thread93, %98, %.thread87, %109, %97, %14
-  %.149 = phi ptr [ null, %14 ], [ %.048117, %97 ], [ %.452, %109 ], [ %.048117, %.thread87 ], [ %.048117, %98 ], [ %.25097, %.thread93 ]
+  %.149 = phi ptr [ null, %14 ], [ %.048124, %97 ], [ %.452, %109 ], [ %.048124, %.thread87 ], [ %.048124, %98 ], [ %.25097, %.thread93 ]
   %.2 = phi ptr [ %.0, %14 ], [ %35, %97 ], [ %spec.select64, %109 ], [ %35, %.thread87 ], [ %35, %98 ], [ %.398, %.thread93 ]
   store ptr %.2, ptr %2, align 8, !tbaa !665
   %.not63 = icmp eq ptr %3, null

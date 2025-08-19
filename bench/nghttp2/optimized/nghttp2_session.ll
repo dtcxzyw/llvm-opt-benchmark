@@ -2626,16 +2626,17 @@ session_predicate_for_stream_send.exit.i276.i:    ; preds = %179
 184:                                              ; preds = %session_predicate_for_stream_send.exit.i276.i
   %185 = getelementptr inbounds nuw i8, ptr %141, i64 80
   %186 = load i32, ptr %185, align 8, !tbaa !140
-  %187 = icmp eq i32 %186, 0
+  %.fr.i.i = freeze i32 %186
+  %187 = icmp eq i32 %.fr.i.i, 0
   br i1 %187, label %session_prep_frame.exit.thread.thread, label %nghttp2_session_is_my_stream_id.exit.i277.i
 
 nghttp2_session_is_my_stream_id.exit.i277.i:      ; preds = %184
   %188 = load i8, ptr %18, align 1, !tbaa !37
-  %189 = trunc i32 %186 to i1
-  %190 = icmp eq i8 %188, 0
+  %189 = trunc i32 %.fr.i.i to i1
+  %.fr20.i.i = freeze i8 %188
+  %190 = icmp eq i8 %.fr20.i.i, 0
   %.not11.i.i = xor i1 %190, %189
-  %cond.fr.i.i = freeze i1 %.not11.i.i
-  br i1 %cond.fr.i.i, label %session_prep_frame.exit.thread.thread, label %session_predicate_headers_send.exit.i
+  br i1 %.not11.i.i, label %session_prep_frame.exit.thread.thread, label %session_predicate_headers_send.exit.i
 
 session_predicate_headers_send.exit.i:            ; preds = %nghttp2_session_is_my_stream_id.exit.i277.i, %session_predicate_for_stream_send.exit.i276.i, %session_predicate_response_headers_send.exit, %163, %session_predicate_push_response_headers_send.exit, %139, %session_predicate_request_headers_send.exit.i
   %191 = getelementptr inbounds nuw i8, ptr %.0.i217, i64 40
@@ -2892,16 +2893,17 @@ session_predicate_push_promise_send.exit.i:       ; preds = %256
 310:                                              ; preds = %308
   %311 = getelementptr inbounds nuw i8, ptr %302, i64 80
   %312 = load i32, ptr %311, align 8, !tbaa !140
-  %313 = icmp eq i32 %312, 0
+  %.fr.i291.i = freeze i32 %312
+  %313 = icmp eq i32 %.fr.i291.i, 0
   br i1 %313, label %session_predicate_window_update_send.exit.i, label %state_reserved_local.exit.i.i
 
 state_reserved_local.exit.i.i:                    ; preds = %310
   %314 = load i8, ptr %18, align 1, !tbaa !37
-  %315 = trunc i32 %312 to i1
-  %316 = icmp eq i8 %314, 0
+  %315 = trunc i32 %.fr.i291.i to i1
+  %.fr15.i.i = freeze i8 %314
+  %316 = icmp eq i8 %.fr15.i.i, 0
   %.not10.i.i = xor i1 %316, %315
-  %cond.fr.i291.i = freeze i1 %.not10.i.i
-  br i1 %cond.fr.i291.i, label %session_predicate_window_update_send.exit.i, label %session_prep_frame.exit.thread.thread
+  br i1 %.not10.i.i, label %session_predicate_window_update_send.exit.i, label %session_prep_frame.exit.thread.thread
 
 nghttp2_session_get_stream.exit.thread.fold.split.i.i: ; preds = %308
   br label %session_prep_frame.exit.thread.thread

@@ -39258,32 +39258,31 @@ lean_obj_tag.exit19.i:                            ; preds = %58, %55
 62:                                               ; preds = %lean_obj_tag.exit19.i
   %63 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !4
+  %.fr = freeze ptr %64
   %65 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !4
-  %67 = ptrtoint ptr %64 to i64
-  %68 = and i64 %67, 1
-  %69 = icmp ne i64 %68, 0
-  %70 = ptrtoint ptr %66 to i64
-  %71 = and i64 %70, 1
-  %72 = icmp ne i64 %71, 0
-  %or.cond.i = select i1 %69, i1 %72, i1 false
-  br i1 %or.cond.i, label %73, label %l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__8.exit, !prof !20
+  %.fr33 = freeze ptr %66
+  %67 = ptrtoint ptr %.fr to i64
+  %68 = ptrtoint ptr %.fr33 to i64
+  %69 = and i64 %67, %68
+  %70 = and i64 %69, 1
+  %or.cond.i.not = icmp eq i64 %70, 0
+  br i1 %or.cond.i.not, label %l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__8.exit, label %71, !prof !19
 
-73:                                               ; preds = %62
-  %74 = icmp eq ptr %64, %66
-  %cond.fr32 = freeze i1 %74
-  br i1 %cond.fr32, label %.critedge, label %.backedge.backedge
+71:                                               ; preds = %62
+  %72 = icmp eq ptr %.fr, %.fr33
+  br i1 %72, label %.critedge, label %.backedge.backedge
 
 l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__8.exit: ; preds = %62
-  %75 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %64, ptr noundef %66) #8
-  %cond.fr = freeze i1 %75
+  %73 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %.fr, ptr noundef %.fr33) #8
+  %cond.fr = freeze i1 %73
   br i1 %cond.fr, label %.critedge, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__8.exit, %lean_obj_tag.exit15.i, %73, %lean_obj_tag.exit19.i, %lean_nat_eq.exit, %31
+.backedge.backedge:                               ; preds = %l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__8.exit, %lean_obj_tag.exit15.i, %71, %lean_obj_tag.exit19.i, %lean_nat_eq.exit, %31
   br label %.backedge
 
-.critedge:                                        ; preds = %l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__8.exit, %lean_obj_tag.exit15.i, %73, %lean_obj_tag.exit
-  %.1 = phi i8 [ 0, %lean_obj_tag.exit ], [ 1, %73 ], [ 1, %lean_obj_tag.exit15.i ], [ 1, %l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__8.exit ]
+.critedge:                                        ; preds = %l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__8.exit, %lean_obj_tag.exit15.i, %71, %lean_obj_tag.exit
+  %.1 = phi i8 [ 0, %lean_obj_tag.exit ], [ 1, %71 ], [ 1, %lean_obj_tag.exit15.i ], [ 1, %l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__8.exit ]
   ret i8 %.1
 }
 

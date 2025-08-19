@@ -15173,7 +15173,7 @@ define hidden range(i24 0, 65793) i24 @_ZN12pingora_core9protocols4http2v16commo
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1408)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1411)
   %.not.i = icmp eq i64 %1, 5
-  br i1 %.not.i, label %.preheader.i, label %.loopexit159
+  br i1 %.not.i, label %.preheader.i, label %.loopexit160
 
 .preheader.i:                                     ; preds = %2, %8
   %.sroa.63.0.i = phi i64 [ %10, %8 ], [ 5, %2 ]
@@ -15197,18 +15197,18 @@ define hidden range(i24 0, 65793) i24 @_ZN12pingora_core9protocols4http2v16commo
   %.sroa.05.0.i = select i1 %18, i8 32, i8 0
   %19 = or i8 %.sroa.05.0.i, %16
   %20 = icmp eq i8 %15, %19
-  br i1 %20, label %.preheader.i, label %.loopexit159
+  br i1 %20, label %.preheader.i, label %.loopexit160
 
-.loopexit159:                                     ; preds = %8, %2
+.loopexit160:                                     ; preds = %8, %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1413)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1416)
   %.not.i92 = icmp eq i64 %1, 10
-  br i1 %.not.i92, label %.preheader.i94, label %.loopexit157
+  br i1 %.not.i92, label %.preheader.i94, label %.loopexit158
 
-.preheader.i94:                                   ; preds = %.loopexit159, %22
-  %.sroa.63.0.i95 = phi i64 [ %24, %22 ], [ 10, %.loopexit159 ]
-  %.sroa.02.0.i96 = phi ptr [ %25, %22 ], [ @anon.d25b1b0dc6cc9c248abc1decac0a3221.556, %.loopexit159 ]
-  %.sroa.01.0.i98 = phi ptr [ %23, %22 ], [ %0, %.loopexit159 ]
+.preheader.i94:                                   ; preds = %.loopexit160, %22
+  %.sroa.63.0.i95 = phi i64 [ %24, %22 ], [ 10, %.loopexit160 ]
+  %.sroa.02.0.i96 = phi ptr [ %25, %22 ], [ @anon.d25b1b0dc6cc9c248abc1decac0a3221.556, %.loopexit160 ]
+  %.sroa.01.0.i98 = phi ptr [ %23, %22 ], [ %0, %.loopexit160 ]
   %21 = icmp eq i64 %.sroa.63.0.i95, 0
   br i1 %21, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit", label %22
 
@@ -15227,18 +15227,18 @@ define hidden range(i24 0, 65793) i24 @_ZN12pingora_core9protocols4http2v16commo
   %.sroa.05.0.i101 = select i1 %32, i8 32, i8 0
   %33 = or i8 %.sroa.05.0.i101, %30
   %34 = icmp eq i8 %29, %33
-  br i1 %34, label %.preheader.i94, label %.loopexit157
+  br i1 %34, label %.preheader.i94, label %.loopexit158
 
-.loopexit157:                                     ; preds = %22, %.loopexit159
+.loopexit158:                                     ; preds = %22, %.loopexit160
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1418)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1421)
   %.not.i103 = icmp eq i64 %1, 7
-  br i1 %.not.i103, label %.preheader.i105, label %.loopexit155
+  br i1 %.not.i103, label %.preheader.i105, label %.loopexit156
 
-.preheader.i105:                                  ; preds = %.loopexit157, %36
-  %.sroa.63.0.i106 = phi i64 [ %38, %36 ], [ 7, %.loopexit157 ]
-  %.sroa.02.0.i107 = phi ptr [ %39, %36 ], [ @anon.d25b1b0dc6cc9c248abc1decac0a3221.557, %.loopexit157 ]
-  %.sroa.01.0.i109 = phi ptr [ %37, %36 ], [ %0, %.loopexit157 ]
+.preheader.i105:                                  ; preds = %.loopexit158, %36
+  %.sroa.63.0.i106 = phi i64 [ %38, %36 ], [ 7, %.loopexit158 ]
+  %.sroa.02.0.i107 = phi ptr [ %39, %36 ], [ @anon.d25b1b0dc6cc9c248abc1decac0a3221.557, %.loopexit158 ]
+  %.sroa.01.0.i109 = phi ptr [ %37, %36 ], [ %0, %.loopexit158 ]
   %35 = icmp eq i64 %.sroa.63.0.i106, 0
   br i1 %35, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit", label %36
 
@@ -15257,9 +15257,9 @@ define hidden range(i24 0, 65793) i24 @_ZN12pingora_core9protocols4http2v16commo
   %.sroa.05.0.i112 = select i1 %46, i8 32, i8 0
   %47 = or i8 %.sroa.05.0.i112, %44
   %48 = icmp eq i8 %43, %47
-  br i1 %48, label %.preheader.i105, label %.loopexit155
+  br i1 %48, label %.preheader.i105, label %.loopexit156
 
-.loopexit155:                                     ; preds = %36, %.loopexit157
+.loopexit156:                                     ; preds = %36, %.loopexit158
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4core3str8converts9from_utf817h34c91f7db7a649f7E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
   %49 = load i64, ptr %6, align 8, !range !252, !noundef !4
@@ -15268,7 +15268,8 @@ define hidden range(i24 0, 65793) i24 @_ZN12pingora_core9protocols4http2v16commo
   %52 = load ptr, ptr %51, align 8, !nonnull !4, !align !973
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %54 = load i64, ptr %53, align 8
-  %.sroa.3.0 = select i1 %50, i64 0, i64 %54
+  %.fr146 = freeze i64 %54
+  %.sroa.3.0 = select i1 %50, i64 0, i64 %.fr146
   %.sroa.018.0 = select i1 %50, ptr inttoptr (i64 1 to ptr), ptr %52
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -15298,20 +15299,21 @@ define hidden range(i24 0, 65793) i24 @_ZN12pingora_core9protocols4http2v16commo
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %.split.split.i.preheader.outer
 
-.split.split.i.preheader.outer:                   ; preds = %.split.split.i.preheader.outer.backedge, %.loopexit155
-  %.promoted.i.ph = phi i8 [ 0, %.loopexit155 ], [ %.promoted.i231, %.split.split.i.preheader.outer.backedge ]
-  %.ph = phi i64 [ 0, %.loopexit155 ], [ %88, %.split.split.i.preheader.outer.backedge ]
-  %.lcssa161190.ph = phi i64 [ 0, %.loopexit155 ], [ %.lcssa161188, %.split.split.i.preheader.outer.backedge ]
-  %.sroa.015.0.ph = phi i8 [ 0, %.loopexit155 ], [ %.sroa.015.0.ph.be, %.split.split.i.preheader.outer.backedge ]
-  %.sroa.012.0.ph = phi i8 [ 0, %.loopexit155 ], [ %.sroa.012.0.ph.be, %.split.split.i.preheader.outer.backedge ]
+.split.split.i.preheader.outer:                   ; preds = %.split.split.i.preheader.outer.backedge, %.loopexit156
+  %.promoted.i.ph = phi i8 [ 0, %.loopexit156 ], [ %.promoted.i232, %.split.split.i.preheader.outer.backedge ]
+  %.ph = phi i64 [ 0, %.loopexit156 ], [ %88, %.split.split.i.preheader.outer.backedge ]
+  %.lcssa162191.ph = phi i64 [ 0, %.loopexit156 ], [ %.lcssa162189, %.split.split.i.preheader.outer.backedge ]
+  %.sroa.015.0.ph = phi i8 [ 0, %.loopexit156 ], [ %.sroa.015.0.ph.be, %.split.split.i.preheader.outer.backedge ]
+  %.sroa.012.0.ph = phi i8 [ 0, %.loopexit156 ], [ %.sroa.012.0.ph.be, %.split.split.i.preheader.outer.backedge ]
   %58 = and i8 %.sroa.015.0.ph, %.sroa.012.0.ph
   %or.cond.not = icmp eq i8 %58, 0
   br label %.split.split.i.preheader
 
 .split.split.i.preheader:                         ; preds = %.split.split.i.preheader.outer, %.loopexit
-  %.promoted.i = phi i8 [ %.promoted.i231, %.loopexit ], [ %.promoted.i.ph, %.split.split.i.preheader.outer ]
+  %.promoted.i = phi i8 [ %.promoted.i232, %.loopexit ], [ %.promoted.i.ph, %.split.split.i.preheader.outer ]
   %59 = phi i64 [ %88, %.loopexit ], [ %.ph, %.split.split.i.preheader.outer ]
-  %.lcssa161190 = phi i64 [ %.lcssa161188, %.loopexit ], [ %.lcssa161190.ph, %.split.split.i.preheader.outer ]
+  %.lcssa162191 = phi i64 [ %.lcssa162189, %.loopexit ], [ %.lcssa162191.ph, %.split.split.i.preheader.outer ]
+  %.promoted23.fr.i = freeze i64 %.lcssa162191
   call void @llvm.experimental.noalias.scope.decl(metadata !1423)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %55, ptr %4, align 8, !noalias !1426
@@ -15319,16 +15321,16 @@ define hidden range(i24 0, 65793) i24 @_ZN12pingora_core9protocols4http2v16commo
   br label %.split.split.i
 
 .split.split.i:                                   ; preds = %.split.split.i.preheader, %select.unfold.i
-  %.promoted.i232 = phi i8 [ %.promoted.i231, %select.unfold.i ], [ %.promoted.i, %.split.split.i.preheader ]
+  %.promoted.i233 = phi i8 [ %.promoted.i232, %select.unfold.i ], [ %.promoted.i, %.split.split.i.preheader ]
   %60 = phi i64 [ %88, %select.unfold.i ], [ %59, %.split.split.i.preheader ]
-  %.lcssa161189 = phi i64 [ %.lcssa161188, %select.unfold.i ], [ %.lcssa161190, %.split.split.i.preheader ]
+  %.lcssa162190 = phi i64 [ %.lcssa162189, %select.unfold.i ], [ %.promoted23.fr.i, %.split.split.i.preheader ]
   %61 = phi i64 [ %89, %select.unfold.i ], [ %59, %.split.split.i.preheader ]
-  %.lcssa1925.i = phi i64 [ %.lcssa1924.i, %select.unfold.i ], [ %.lcssa161190, %.split.split.i.preheader ]
+  %.lcssa1925.i = phi i64 [ %.lcssa1924.i, %select.unfold.i ], [ %.promoted23.fr.i, %.split.split.i.preheader ]
   %62 = phi i8 [ %90, %select.unfold.i ], [ %.promoted.i, %.split.split.i.preheader ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1429)
   call void @llvm.experimental.noalias.scope.decl(metadata !1432)
   %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %.loopexit149, label %64
+  br i1 %63, label %.loopexit150, label %64
 
 64:                                               ; preds = %.split.split.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1435)
@@ -15401,9 +15403,9 @@ _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread.i.i.i.i: ; preds = 
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0a4d7ac1e893bdf2E.exit.i.i.i", %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hbd7d807cf085a09fE.exit.i.i.i"
-  %.promoted.i231 = phi i8 [ %.promoted.i232, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hbd7d807cf085a09fE.exit.i.i.i" ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0a4d7ac1e893bdf2E.exit.i.i.i" ]
+  %.promoted.i232 = phi i8 [ %.promoted.i233, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hbd7d807cf085a09fE.exit.i.i.i" ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0a4d7ac1e893bdf2E.exit.i.i.i" ]
   %88 = phi i64 [ %80, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hbd7d807cf085a09fE.exit.i.i.i" ], [ %86, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0a4d7ac1e893bdf2E.exit.i.i.i" ]
-  %.lcssa161188 = phi i64 [ %80, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hbd7d807cf085a09fE.exit.i.i.i" ], [ %.lcssa161189, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0a4d7ac1e893bdf2E.exit.i.i.i" ]
+  %.lcssa162189 = phi i64 [ %80, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hbd7d807cf085a09fE.exit.i.i.i" ], [ %.lcssa162190, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0a4d7ac1e893bdf2E.exit.i.i.i" ]
   %89 = phi i64 [ %80, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hbd7d807cf085a09fE.exit.i.i.i" ], [ %87, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0a4d7ac1e893bdf2E.exit.i.i.i" ]
   %.lcssa1924.i = phi i64 [ %80, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hbd7d807cf085a09fE.exit.i.i.i" ], [ %.lcssa1925.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0a4d7ac1e893bdf2E.exit.i.i.i" ]
   %90 = phi i8 [ 0, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hbd7d807cf085a09fE.exit.i.i.i" ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0a4d7ac1e893bdf2E.exit.i.i.i" ]
@@ -15420,19 +15422,19 @@ select.unfold.i:                                  ; preds = %"_ZN4core3str4iter2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1453
   %.not.i13.i = icmp ne ptr %92, null
   %.not.i.not.i = select i1 %94, i1 %.not.i13.i, i1 false
-  br i1 %.not.i.not.i, label %.loopexit150, label %.split.split.i
+  br i1 %.not.i.not.i, label %.loopexit151, label %.split.split.i
 
-.loopexit150:                                     ; preds = %select.unfold.i
+.loopexit151:                                     ; preds = %select.unfold.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !1459)
   call void @llvm.experimental.noalias.scope.decl(metadata !1462)
   %.not.i114 = icmp eq i64 %93, 5
-  br i1 %.not.i114, label %.preheader.i116, label %.loopexit148
+  br i1 %.not.i114, label %.preheader.i116, label %.loopexit149
 
-.preheader.i116:                                  ; preds = %.loopexit150, %96
-  %.sroa.63.0.i117 = phi i64 [ %98, %96 ], [ 5, %.loopexit150 ]
-  %.sroa.02.0.i118 = phi ptr [ %99, %96 ], [ @anon.d25b1b0dc6cc9c248abc1decac0a3221.555, %.loopexit150 ]
-  %.sroa.01.0.i120 = phi ptr [ %97, %96 ], [ %92, %.loopexit150 ]
+.preheader.i116:                                  ; preds = %.loopexit151, %96
+  %.sroa.63.0.i117 = phi i64 [ %98, %96 ], [ 5, %.loopexit151 ]
+  %.sroa.02.0.i118 = phi ptr [ %99, %96 ], [ @anon.d25b1b0dc6cc9c248abc1decac0a3221.555, %.loopexit151 ]
+  %.sroa.01.0.i120 = phi ptr [ %97, %96 ], [ %92, %.loopexit151 ]
   %95 = icmp eq i64 %.sroa.63.0.i117, 0
   br i1 %95, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit124", label %96
 
@@ -15451,29 +15453,29 @@ select.unfold.i:                                  ; preds = %"_ZN4core3str4iter2
   %.sroa.05.0.i123 = select i1 %106, i8 32, i8 0
   %107 = or i8 %.sroa.05.0.i123, %104
   %108 = icmp eq i8 %103, %107
-  br i1 %108, label %.preheader.i116, label %.loopexit148
+  br i1 %108, label %.preheader.i116, label %.loopexit149
 
-.loopexit149:                                     ; preds = %.split.split.i
+.loopexit150:                                     ; preds = %.split.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %109 = trunc nuw i8 %.sroa.012.0.ph to i1
   br i1 %109, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit", label %110
 
-110:                                              ; preds = %.loopexit149
+110:                                              ; preds = %.loopexit150
   %111 = zext nneg i8 %.sroa.015.0.ph to i24
   %spec.select = shl nuw nsw i24 %111, 8
   br label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit"
 
-.loopexit148:                                     ; preds = %96, %.loopexit150
+.loopexit149:                                     ; preds = %96, %.loopexit151
   call void @llvm.experimental.noalias.scope.decl(metadata !1464)
   call void @llvm.experimental.noalias.scope.decl(metadata !1467)
   %.not.i125 = icmp eq i64 %93, 7
   br i1 %.not.i125, label %.preheader.i127, label %.loopexit
 
-.preheader.i127:                                  ; preds = %.loopexit148, %113
-  %.sroa.63.0.i128 = phi i64 [ %115, %113 ], [ 7, %.loopexit148 ]
-  %.sroa.02.0.i129 = phi ptr [ %116, %113 ], [ @anon.d25b1b0dc6cc9c248abc1decac0a3221.557, %.loopexit148 ]
-  %.sroa.01.0.i131 = phi ptr [ %114, %113 ], [ %92, %.loopexit148 ]
+.preheader.i127:                                  ; preds = %.loopexit149, %113
+  %.sroa.63.0.i128 = phi i64 [ %115, %113 ], [ 7, %.loopexit149 ]
+  %.sroa.02.0.i129 = phi ptr [ %116, %113 ], [ @anon.d25b1b0dc6cc9c248abc1decac0a3221.557, %.loopexit149 ]
+  %.sroa.01.0.i131 = phi ptr [ %114, %113 ], [ %92, %.loopexit149 ]
   %112 = icmp eq i64 %.sroa.63.0.i128, 0
   br i1 %112, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit135", label %113
 
@@ -15496,26 +15498,26 @@ select.unfold.i:                                  ; preds = %"_ZN4core3str4iter2
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit124": ; preds = %.preheader.i116
   %126 = trunc nuw i8 %.sroa.015.0.ph to i1
-  br i1 %126, label %.loopexit257, label %.split.split.i.preheader.outer.backedge
+  br i1 %126, label %.loopexit258, label %.split.split.i.preheader.outer.backedge
 
-.loopexit:                                        ; preds = %113, %.loopexit148
-  br i1 %or.cond.not, label %.split.split.i.preheader, label %.loopexit257
+.loopexit:                                        ; preds = %113, %.loopexit149
+  br i1 %or.cond.not, label %.split.split.i.preheader, label %.loopexit258
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit135": ; preds = %.preheader.i127
   %.old1 = trunc nuw i8 %.sroa.012.0.ph to i1
-  br i1 %.old1, label %.loopexit257, label %.split.split.i.preheader.outer.backedge
+  br i1 %.old1, label %.loopexit258, label %.split.split.i.preheader.outer.backedge
 
 .split.split.i.preheader.outer.backedge:          ; preds = %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit135", %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit124"
   %.sroa.015.0.ph.be = phi i8 [ 0, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit124" ], [ 1, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit135" ]
   %.sroa.012.0.ph.be = phi i8 [ 1, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit124" ], [ 0, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit135" ]
   br label %.split.split.i.preheader.outer
 
-.loopexit257:                                     ; preds = %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit124", %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit135", %.loopexit
+.loopexit258:                                     ; preds = %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit124", %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit135", %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit"
 
-"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit": ; preds = %.preheader.i, %.preheader.i94, %.preheader.i105, %110, %.loopexit149, %.loopexit257
-  %.sroa.0.0 = phi i24 [ 65792, %.loopexit257 ], [ 65536, %.loopexit149 ], [ %spec.select, %110 ], [ 256, %.preheader.i105 ], [ 1, %.preheader.i94 ], [ 65536, %.preheader.i ]
+"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit": ; preds = %.preheader.i, %.preheader.i94, %.preheader.i105, %110, %.loopexit150, %.loopexit258
+  %.sroa.0.0 = phi i24 [ 65792, %.loopexit258 ], [ 65536, %.loopexit150 ], [ %spec.select, %110 ], [ 256, %.preheader.i105 ], [ 1, %.preheader.i94 ], [ 65536, %.preheader.i ]
   ret i24 %.sroa.0.0
 }
 

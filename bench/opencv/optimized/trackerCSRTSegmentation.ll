@@ -530,12 +530,13 @@ define hidden void @_ZN2cv9Histogram26extractBackGroundHistogramERSt6vectorINS_3
   %25 = sext i32 %7 to i64
   %26 = sext i32 %3 to i64
   %27 = sext i32 %5 to i64
+  %wide.trip.count132 = sext i32 %9 to i64
   %wide.trip.count125 = sext i32 %8 to i64
   br label %.lr.ph79.split.us
 
 .lr.ph79.split.us:                                ; preds = %.lr.ph79.split.us.preheader, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us
   %indvars.iv129 = phi i64 [ %25, %.lr.ph79.split.us.preheader ], [ %indvars.iv.next130, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ]
-  %.04278.us = phi double [ 0.000000e+00, %.lr.ph79.split.us.preheader ], [ %.us-phi.us153, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ]
+  %.04278.us = phi double [ 0.000000e+00, %.lr.ph79.split.us.preheader ], [ %.us-phi.us152, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ]
   %28 = load i32, ptr %15, align 4, !tbaa !19
   %.fr = freeze i32 %28
   %29 = zext i32 %.fr to i64
@@ -564,10 +565,9 @@ _ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.us: ; preds = %.noexc
   br label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us
 
 _ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us:             ; preds = %36, %._crit_edge65.split.split.us.us, %._crit_edge65.us
-  %.us-phi.us153 = phi double [ %.2.us.us, %._crit_edge65.us ], [ %75, %._crit_edge65.split.split.us.us ], [ %.2.us85, %36 ]
+  %.us-phi.us152 = phi double [ %.2.us.us, %._crit_edge65.us ], [ %75, %._crit_edge65.split.split.us.us ], [ %.2.us85, %36 ]
   %indvars.iv.next130 = add nsw i64 %indvars.iv129, 1
-  %lftr.wideiv132 = trunc i64 %indvars.iv.next130 to i32
-  %exitcond133.not = icmp eq i32 %9, %lftr.wideiv132
+  %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
   br i1 %exitcond133.not, label %._crit_edge, label %.lr.ph79.split.us, !llvm.loop !54
 
 .lr.ph64.split.split.us90:                        ; preds = %.lr.ph64.split.us89, %36
@@ -611,7 +611,6 @@ _ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us:             ; preds = %36, %._crit_edge65.
   %.not45.us = icmp slt i64 %indvars.iv129, %26
   %.not46.us = icmp sgt i64 %indvars.iv129, %27
   %invariant.op.us = or i1 %.not45.us, %.not46.us
-  %invariant.op.fr.us = freeze i1 %invariant.op.us
   %51 = load ptr, ptr %17, align 8
   %52 = load ptr, ptr %18, align 8
   %wide.trip.count120 = zext nneg i32 %.fr to i64
@@ -626,9 +625,8 @@ _ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us:             ; preds = %36, %._crit_edge65.
   %.not45.us143 = icmp slt i64 %indvars.iv129, %26
   %.not46.us144 = icmp sgt i64 %indvars.iv129, %27
   %invariant.op.us145 = or i1 %.not45.us143, %.not46.us144
-  %invariant.op.fr.us146 = freeze i1 %invariant.op.us145
   %54 = load ptr, ptr %18, align 8
-  br i1 %invariant.op.fr.us146, label %.lr.ph64.split.split.us.us, label %.lr.ph64.split.split.us90
+  br i1 %invariant.op.us145, label %.lr.ph64.split.split.us.us, label %.lr.ph64.split.split.us90
 
 .lr.ph64.split.us.us:                             ; preds = %.lr.ph64.split.us.us.preheader, %55
   %indvars.iv122 = phi i64 [ %22, %.lr.ph64.split.us.us.preheader ], [ %indvars.iv.next123, %55 ]
@@ -636,7 +634,7 @@ _ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us:             ; preds = %36, %._crit_edge65.
   %.not.us.us = icmp slt i64 %indvars.iv122, %23
   %.not44.us.us = icmp sgt i64 %indvars.iv122, %24
   %or.cond.us.us = or i1 %.not.us.us, %.not44.us.us
-  %or.cond48.reass.us.us = or i1 %or.cond.us.us, %invariant.op.fr.us
+  %or.cond48.reass.us.us = or i1 %or.cond.us.us, %invariant.op.us
   br i1 %or.cond48.reass.us.us, label %.preheader.us.us, label %55
 
 55:                                               ; preds = %._crit_edge.us.us, %.lr.ph64.split.us.us
@@ -692,7 +690,7 @@ _ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us:             ; preds = %36, %._crit_edge65.
   br label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us, %10
-  %.042.lcssa = phi double [ 0.000000e+00, %10 ], [ %.us-phi.us153, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ], [ 0.000000e+00, %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
+  %.042.lcssa = phi double [ 0.000000e+00, %10 ], [ %.us-phi.us152, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ], [ 0.000000e+00, %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
   %77 = fdiv double 1.000000e+00, %.042.lcssa
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load i32, ptr %78, align 8, !tbaa !21
